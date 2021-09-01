@@ -1,0 +1,1255 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">
+  google.load("jquery", "1.3.2");
+</script>
+
+<style type="text/css">
+  body {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue",
+      Helvetica, Arial, "Lucida Grande", sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1100px;
+  }
+
+  h1 {
+    font-size: 32px;
+    font-weight: 300;
+  }
+
+  .small {
+    font-size: 10px;
+  }
+
+  .disclaimerbox {
+    background-color: #eee;
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding: 20px;
+  }
+
+  video.header-vid {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+  }
+
+  img.header-img {
+    height: 140px;
+    border: 1px solid black;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+  }
+
+  img.rounded {
+    border: 1px solid #eeeeee;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+  }
+
+  a:link,
+  a:visited {
+    color: #1367a7;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #208799;
+  }
+
+  td.dl-link {
+    height: 160px;
+    text-align: center;
+    font-size: 22px;
+  }
+
+  .layered-paper-big {
+    /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+      /* The top layer shadow */ 5px 5px 0 0px #fff,
+      /* The second layer */ 5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+      /* The second layer shadow */ 10px 10px 0 0px #fff,
+      /* The third layer */ 10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+      /* The third layer shadow */ 15px 15px 0 0px #fff,
+      /* The fourth layer */ 15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+      /* The fourth layer shadow */ 20px 20px 0 0px #fff,
+      /* The fifth layer */ 20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+      /* The fifth layer shadow */ 25px 25px 0 0px #fff,
+      /* The fifth layer */ 25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+    /* The fifth layer shadow */
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+
+  .paper-big {
+    /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35);
+    /* The top layer shadow */
+
+    margin-left: 10px;
+    margin-right: 45px;
+  }
+
+  .layered-paper {
+    /* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+    box-shadow: 0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+      /* The top layer shadow */ 5px 5px 0 0px #fff,
+      /* The second layer */ 5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+      /* The second layer shadow */ 10px 10px 0 0px #fff,
+      /* The third layer */ 10px 10px 1px 1px rgba(0, 0, 0, 0.35);
+    /* The third layer shadow */
+    margin-top: 5px;
+    margin-left: 10px;
+    margin-right: 30px;
+    margin-bottom: 5px;
+  }
+
+  .vert-cent {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0),
+      rgba(0, 0, 0, 0.75),
+      rgba(0, 0, 0, 0)
+    );
+  }
+</style>
+
+<html>
+  <head>
+    <title>What makes a painting emotional?</title>
+    <meta property="og:image" content="Path to my teaser.png" />
+    <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
+    <meta property="og:title" content="Creative and Descriptive Paper Title." />
+    <meta property="og:description" content="Paper description." />
+
+    <!-- Get from Google Analytics -->
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src=""></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-75863369-6");
+    </script>
+  </head>
+
+  <body>
+    <br />
+    <center>
+      <span style="font-size: 36px"
+        >What makes a painting emotional? Compare and contrast Art Theory with
+        deep model’s knowledge
+      </span>
+      <table align="center" width="600px">
+        <table align="center" width="600px">
+          <tr>
+            <td align="center" width="100px">
+              <center>
+                <span style="font-size: 24px"
+                  >WenXin Dong (wxd@stanford.edu)</span
+                >
+              </center>
+            </td>
+            <td align="center" width="100px">
+              <center>
+                <span style="font-size: 24px"
+                  >Panos Achlioptas (optas@stanford.edu)</span
+                >
+              </center>
+            </td>
+          </tr>
+        </table>
+        <table align="center" width="250px">
+          <tr>
+            <td align="center" width="120px">
+              <center>
+                <span style="font-size: 24px"><a href="">[Poster]</a></span>
+              </center>
+            </td>
+            <td align="center" width="120px">
+              <center>
+                <span style="font-size: 24px"
+                  ><a
+                    href="https://github.com/affective-low-level-features/affective-features"
+                    >[GitHub]</a
+                  ></span
+                ><br />
+              </center>
+            </td>
+          </tr>
+        </table>
+      </table>
+    </center>
+
+    <center>
+      <table align="center" width="850px">
+        <tr>
+          <td width="260px">
+            <center>
+              <img
+                class="round"
+                style="width: 800px"
+                src="./resources/teaser.png"
+              />
+            </center>
+          </td>
+        </tr>
+        <tr>
+          <td align="center">
+            Figure 1. Example paintings from the ArtEmis dataset with ground
+            truth emotion distribution. Majority emotion boldened.
+          </td>
+        </tr>
+      </table>
+    </center>
+
+    <hr />
+
+    <table align="center" width="850px">
+      <center>
+        <h1>Abstract</h1>
+      </center>
+      <tr>
+        <td>
+          <p>
+            Paintings evoke subjective emotions. An emotion could be evoked by
+            the <b>semantic</b> implication of the subject matter. For example,
+            paintings of sharks may evoke a sense of fear. Other times, the
+            reasoning behind emotional responses is more nuanced and happens on
+            a subconcious level. For example, one might feel excited by the
+            painting of a shark if the painting were drawn in lively and bright
+            <b>colors</b>; a portrait with neural expression could be
+            interpreted as angry if hard <b>lines</b> and sharp
+            <b>angles</b> where emphasized. It is therefore interesting from an
+            Art Theory perspective to understand what <b>features</b> are more
+            powerful at evoking emotional responses in humans, and to find
+            possible <b>interpretations</b> for given emotional responses.
+          </p>
+          <p>
+            In this project, we seek to find the most important features in
+            <b>emotion classification</b> of paintings. Our result suggests that
+            out of the 179 curated features, 6 features stand out with
+            significant margin and they are: GLCM contrast (saturation),
+            colorfulness, black, genre_is_landscape, the first principle
+            component of bounding boxes of people and GLCM homogeneity
+            (saturation). In addition to obtaining a ranking of the 179 curated
+            features, we have shown that using handcrafted features as
+            additional input has the promising potential of improving the
+            classification accuracy of <b>deep models</b>.
+          </p>
+        </td>
+      </tr>
+    </table>
+    <br />
+
+    <hr />
+    <table align="center" width="850px">
+      <center>
+        <h1>Related work</h1>
+      </center>
+      <tr>
+        <td>
+          <p>
+            <b>Affective analysis</b> is the research area that aims to identiy
+            the emotion expressed in the input. Earlier work in affective
+            analysis of paintings proposed <b>handcrafted features</b> based on
+            psychology and art theory [3], the visual effect of shapes [2],
+            principles of art [9], Itten’s color theory, texture [4], among a
+            variety of low-level features. The main <b>limitation</b> of these
+            handcrafted features is their inability at capturing global
+            composition and semantics.
+          </p>
+
+          <p>
+            With the advance of <b>deep learning</b>, extracting global-level
+            semantic features in paintings was made possible. Several deep
+            architectures had been proposed for extracting both low-level and
+            <b>high-level features</b> simultaneously. For example, Rao et al.
+            [6] introduced a fusion model that fuses output from convolutional
+            layers of different levels in a CNN as feature extraction; Lu et al.
+            [7] introduced a parallel CNN architecture that takes in both the
+            global picture and a local patch to rate pictorial aesthetics.
+          </p>
+
+          <p>
+            Few work has compared handcrafted features with deep-learning based
+            features. You et al. [8] compared the performance between
+            handcrafted feature sets, raw ImageNet-CNN representations, and
+            finetuned-CNN representations, and found the deep-learning based
+            representations to outperform handcrafted features. However, they
+            did not analyse the <b>correlation</b> between handcrafted and
+            learned features. Kim et al. [10] combined handcrafted features with
+            the final output of a pre-trained model (object-tags) and observed
+            <b>improvement</b> in classification accuracy of emotions in images.
+          </p>
+
+          <p>
+            On the line of <b>interpreting</b> deep representations, Elgammal el
+            al. [11] analysed representations learned by finetuned pretrained
+            CNN models on a style classification task using various projection
+            methods. Côté-Allard et al. [12] analysed the relationship between
+            handcrafted and learned features for gesture classification through
+            employing topological data analysis, Guided Grad-CAM, and feature
+            classification prediction. To the best of our knowledge, no work so
+            far has focused on the interpretability of deep-learning based
+            features for emotion classification of paintings.
+          </p>
+        </td>
+      </tr>
+    </table>
+
+    <hr />
+    <table align="center" width="850px">
+      <center>
+        <h1>Dataset</h1>
+      </center>
+      <tr>
+        <td>
+          <p>
+            We use <b>ArtEmis</b> [13] as our dataset, which contans
+            <b>80k</b> WikiArt paintings with ground-truth emotion
+            distributions. We use a subset of <b>30k</b> paintings that have a
+            dominant emotion in the ground-truth distribution. The ArtEmis
+            dataset has 9 emotion labels: Amusement, Awe, Excitement,
+            Contentment, Anger, Disgust, Fear, Sadness, and Something else.
+          </p>
+          <p>
+            For
+            <b>multiclass classification</b>, we use a balanced dataset with 8
+            emotions.We drop the emotion class <b>Anger</b> due to its
+            infrequency.
+          </p>
+          <p>
+            For <b>binary classification</b>, we also use a balanced dataset.
+            The positive class encompasses Amusement, Awe, Excitement,
+            Contentment, and negative class encompasses Anger,Disgust, Fear,
+            Sadness. Please note we drop <b>Something Else</b> due to its
+            ambigouity.
+          </p>
+        </td>
+      </tr>
+    </table>
+    <hr />
+    <table align="center" width="850px">
+      <center>
+        <h1>Method</h1>
+      </center>
+      <tr>
+        <td>
+          <p>
+            <b>
+              To rank handcrafted features by their relative importance, we
+              average over six individual rankings.</b
+            >
+          </p>
+          <p><b>1. SHAP values</b></p>
+          <p>
+            We approximate the SHAP value of each handcrafted feature in a
+            linear SVM binary classifier, using 4000 background examples, 400
+            explain examples, and 1000 permutations. We rank the features by
+            their absolute SHAP value. SHAP values was proposed as a unified
+            measure of feature importance for feature-based classifiers[14]. In
+            simple terms, the SHAP value of a feature represents the marginal
+            contribution of that feature to the final prediction. It takes
+            exponential time to calculate the true SHAP values as it requires
+            testing all permutations of the features, and it is therefore common
+            pratice to approximate SHAP values using samplers. The authors of
+            SHAP introduced efficient approximation methods and we use their
+            <a href="https://shap.readthedocs.io/en/latest/index.html">API</a>
+            in this project. We obtain two separate SHAP rankings by changing
+            the model from a linear binary SVM to a linear multiclass SVM (and
+            the task from binary classification to multiclass classification).
+            SHAP assumes <b>feature independence</b> as correlations among
+            features might cause features which did not contribute to the
+            prediction to share the credits of those features that did
+            contribute to the prediction. This is one of the reasons why we use
+            the second method, SVM on single features, to cross-validate the
+            predictive power of a feature.
+          </p>
+          <p><b> 2. Support Vector Machines</b></p>
+          <p>
+            We use single features as input to a linear binary SVM and rank the
+            features according to the prediction accuracy of the SVM. We found
+            little difference in accuracy by using a non-linear kernal. Since
+            every feature is 1 dimensional, we train the same number of linear
+            SVMs as the number of handcrafted features. We repeat this precedure
+            with multiclass classification to obtain 2 separate rankings.
+          </p>
+          <p><b>3. Decision Tree Classifiers</b></p>
+
+          <p>
+            As a third method to crossvalidate the ranking of the features, we
+            train one binary Decision tree classifier using all handcrafted
+            features, and calculate the feature importance for each handcrafted
+            feature. Feature importance in decision tree classifiers is defined
+            as the decrease in node impurity weighted by the probability of
+            reaching that node.
+          </p>
+          <p>
+            Again, we repeat this method with multi-class classication by
+            training a multiclass decision tree classifier to obtain 2 separate
+            rankings.
+          </p>
+
+          <tr>
+            <td>
+              <br />
+              <p>
+                <b
+                  >Finding correlation between handcrafted and learned
+                  features.</b
+                >
+              </p>
+              <p>
+                We use <b>Canonical Correlation Analysis (CCA)</b> to correlate
+                handcrafted features with learned features. Given two sets of
+                random variables X and Y, CCA finds linear combinations of X and
+                Y which have <b>maximum correlation</b> with each other. Each
+                linear combination is called a canonical variable, and a pair of
+                linear combinations with maximised correlation is called
+                <b>a pair of canonical variables</b>. CCA constrains the
+                optimization such that pairs of canonical variables are
+                uncorrelated with each other. Naturally, one can find a maximum
+                of min(dim(X), dim(Y)) pairs of canonical variables.
+              </p>
+              <p>
+                Let X be our 100D learned features, and Y be a handcrafted
+                feature group or a single handcrafted feature. For X and Y, we
+                find pairs of canonical variables with
+                <b>significant correlation</b>
+                coefficient (>0.45). For each pair of canonical variables, we
+                find the variance explained between the variables by taking the
+                square of their correlation coefficient. We then calculate the
+                <b
+                  >proportion of variance shared between X and Y across all
+                  canonical variates</b
+                >, Rc^2. Since each pair of canonical variables aim to explain
+                the variance that the existing pairs did not explain, each pair
+                contribute (1- Rc^2) * (correlation_coefficient)^2 to the
+                overall Rc^2, recursively.
+              </p>
+              <p>
+                Carrying out the above method for different handcrafted groups,
+                we find the Rc^2 value for each handcrafted feature group. These
+                Rc^2 values are used as an <b>approximation</b> to the
+                proportion of variance of the feature set with smaller variance
+                explained by the feature set with larger variance.
+              </p>
+            </td>
+          </tr>
+        </td>
+      </tr>
+    </table>
+
+    <hr />
+
+
+    <table align="center" width="850px">
+      <center>
+        <h1>Analysis results</h1>
+      </center>
+      <tr>
+        <td>
+          <p>
+            We carry out the precedure described in the Methods section to
+            obtain the 6 individual rankings and an overall ranking of the
+            handcrafted features. The table below lists the top 10 features from
+            each ranking. We see that the overall most important feature is GLCM
+            contrast (saturation), followed by colorfulness and black. The top
+            10 features overall are color coded for better visibility. We
+            observe consistency between individual rankings and the overall
+            ranking.
+          </p>
+        </td>
+      </tr>
+
+      <tr align="center">
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/single_ranking.png"
+          />
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          Figure 2. Top 10 features from each ranking method, color coded for
+          better visibility.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <br /><br /><br />
+          <p>
+            The top three features, GLCM contrast (saturation), colorfulness and
+            black are all <b>low-level features</b>.
+            <b>GLCM contrast (saturation)</b> is a <b>texture</b> feature that
+            measures average the saturation contrast between a pixel and its
+            neighbor over the whole image. That is, it measure
+            <b>local saturation contrast</b> in a painting.
+            <b>Figure 3</b> shows some paintings with their ground truth
+            majority emotion and <b>normalized</b> GLCM contrast (saturation)
+            value. As can be seen, paintings with higher GLCM contrast
+            (saturation) values tend to contain more disjoint small blocks of
+            colors and more distinct edges separating colors of different
+            saturation. Both intuitively and empirically, we observe high GLCM
+            contrast (saturation) values to correlate with negative effect on
+            emotion.
+          </p>
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/GLCM contrast.png"
+          />
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          Figure 3. Paintings from the ArtEmis dataset with their corresponding
+          ground truth majority emotion, and their normalized GLCM contrast
+          (saturation) value.
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <br /><br /><br />
+          <p>
+            The second most important feature is <b>colorfulness</b>.
+            Colorfulness measures the Earth Mover’s Distance between the
+            histogram of the painting and the histogram having a uniform color
+            distribution. Empirically,
+            <b
+              >lower colorfulness value induces positive net emotional
+              effect.</b
+            >
+            Figure 4 shows some paintings with their
+            <b>normalized</b> colorfulness value. As can be seen in Figure 4,
+            paintings with higher colorfulness values tend to be dominanted by a
+            single color, and paintings with lower colorfulness values tend use
+            all colors uniformly.
+          </p>
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/colorfulness.png"
+          />
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          Figure 4. Paintings from the ArtEmis dataset with their corresponding
+          ground truth majority emotion, and their normalized colorfulness
+          value.
+        </td>
+      </tr>
+    </table>
+    <table align="center" width="850px">
+      <tr>
+        <td>
+          <br />
+          The third most important feature is <b>Black</b>, which represents the
+          number of black pixels in the paintings. The color spectrum is divided
+          into 11 basic colors, and we count the number of pixels in the black
+          category. Figure 5 shows some examples with their
+          <b>normalized</b> black value. As can be observed, the darker a
+          painting is, the higher is its black value. Empirically, number of
+          black pixels correlate positively with <b>negative emotion</b>.
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          <br />
+          <img class="round" style="width: 600px" src="./resources/black.png" />
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          Figure 5. Paintings from the ArtEmis dataset with their corresponding
+          ground truth majority emotion, and their normalized number of black
+          pixels value.
+        </td>
+      </tr>
+    </table>
+    <hr />
+    <table align="center" width="850px">
+      <tr align="center">
+        <br />
+        <td><h5>Ranking of feature subgroups</h5></td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            Some features, such as artstyle, genre and bounding boxes, are more
+            useful when viewed in aggregation. Thus, we perform
+            <b>ranking for feature subgroups</b>. Feature subgroups are defined
+            as shown in the Handcrafted Features section. Each feature group is
+            represented by a <b>multi-dimensional feature vector</b>, which is
+            the concatenation of single features in the subgroup. Similar to
+            ranking of single features, we aggregate
+            <b>6 individual rankings</b>. We perform binary and multiclass
+            <b>SVM ranking</b> using multi-dimensional feature vectors as input,
+            <b>SHAP ranking</b> using the total |SHAP values| of the features in
+            the subgroup for both the single-feature binary SVM model and
+            single-feature multiclass SVM model, and
+            <b>Decision Tree ranking</b> by using the total feature importance
+            of the features in the subgroup which had
+            <b>positive</b> contribution.
+          </p>
+
+          <p>
+            Figure 6 displays the ranking of the feature categories. The top 3
+            most important feature subgroups are
+            <b>hue, texture, genre</b>.
+          </p>
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/group_ranking.png"
+          />
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          Figure 6. Ranking of the feature subgroups, color-coded for better
+          visibility.
+        </td>
+      </tr>
+    </table>
+    <br />
+
+    <hr />
+
+    <table align="center" width="850px">
+      <tr align="center">
+        <td>
+          <h5>Correlation between handcrafted features and learned features</h5>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            <b>Figure 7</b> summarizes the correlation between handcrafted
+            features and deep-learning based features. The
+            <b>first column</b> in Figure 7 shows the proportion of variance
+            shared between all canonical variates with significant correlation,
+            which approximately informs us to what extent, the feature set with
+            larger variance explains the feature set with smaller variance. As
+            can be seen, some low-level features are almost
+            <b>completely explained</b> by learned features, suggesting learned
+            features almost completely encode these low-level information. On
+            the other hand, there is less information overlap between learned
+            features and handcrafted features on
+            <b>high-level variables</b> such as artstyle, genre, and bboxes.
+            Finally, some low-level features correlate weakly with learned
+            features, possibly because the model did not pick up on these
+            particular features during training.
+          </p>
+
+          <p>
+            The <b>second column</b> shows the improvement in a linear SVM
+            classifier accuracy if we were to concatenate the handcrafted
+            feature subgroup to the learned features, compared to only using
+            learned features.
+          </p>
+          As shown in Figure 7, the
+          <b>strongly correlated</b> handcrafted feature subgroups introduce
+          <b>no improvement</b> to the SVM classifier, as expected. Moreover,
+          the high-level feature subgroups,
+          <b>artstyle, genre and bounding boxes</b>, are very helpful to the
+          prediction task but the model <b>did not fully learned</b> them.
+          Finally, low-level features subgroups rotational
+          <b>symmetry, lines, and radial symmetry</b>, also introduce
+          <b>no improvement</b> to the accuracy of the SVM classifier,
+          suggesting that those features are <b>not helpful</b> to the task and
+          are <b>not learned</b> by the deep model.
+        </td>
+      </tr>
+
+      <tr align="center">
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/group_corr.png"
+          />
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          Figure 7. Column 1: Oroportion of variance shared between canonical
+          variates of learned features and handcrafted feature subgroups with
+          significant correlation (>0.45). Column 2: Improvement in a linear SVM
+          classifier accuracy if we were to concatenate the handcrafted feature
+          subgroup to the learned features, compared to only using learned
+          features.
+        </td>
+      </tr>
+    </table>
+
+    <hr />
+    <table align="center" width="850px">
+      <center>
+        <h1>Full list of handcrafted features</h1>
+      </center>
+    </table>
+    <table align="center" width="420px">
+      <center>
+        <td>
+          <img
+            class="round"
+            style="width: 420px"
+            src="./resources/word cloud.png"
+          />
+        </td>
+      </center>
+    </table>
+
+    <table
+      align="center"
+      width="850px"
+      style="font-size: 15px; overflow: scroll"
+      height="400px"
+    >
+      <tr>
+        <td>
+          <p><b>Category: 'saturation and brightness' (see [3])</b></p>
+          <li>
+            'mean saturation': mean saturation of the painting in HSY color
+            space
+          </li>
+          <li>
+            'mean brightness': mean brightness of the painting in HSY color
+            space
+          </li>
+          <li>'pleasure': 0.69 Brightness +0.22 Saturation</li>
+          <li>'arousal': −0.31 Brightness +0.60 Saturation</li>
+          <li>'dominance': 0.76 Brightness +0.32 Saturation</li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Category: 'hue' (see [3])</b></p>
+          <li>
+            'saturation-weighted vector-based mean hue': Mean hue weighted by
+            saturation
+          </li>
+          <li>
+            'saturation-weighted angular dispersion': Angular dispersion
+            weighted by saturation
+          </li>
+          <li>'vector-based mean hue': Mean hue.</li>
+          <li>'angular dispersion': Mean angular dispersion of hue</li>
+          <li>
+            'colorfulness': Earth Mover’s Distance between the histogram of the
+            painting and the histogram having a uniform color distribution,
+          </li>
+          <li>'black': Out of 11 basic colors, how many pixels are black</li>
+          <li>'blue': Out of 11 basic colors, how many pixels are blue</li>
+          <li>'brown':Out of 11 basic colors, how many pixels are brown</li>
+          <li>'green':Out of 11 basic colors, how many pixels are green</li>
+          <li>'gray':Out of 11 basic colors, how many pixels are gray</li>
+          <li>'orange':Out of 11 basic colors, how many pixels are orange</li>
+          <li>'pink':Out of 11 basic colors, how many pixels are pink</li>
+          <li>'purple':Out of 11 basic colors, how many pixels are purple</li>
+          <li>'red':Out of 11 basic colors, how many pixels are red</li>
+          <li>'white':Out of 11 basic colors, how many pixels are white</li>
+          <li>'yellow':Out of 11 basic colors, how many pixels are yellow</li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Category: 'texture' (see [3])</b></p>
+          <li>'coarseness': coarseness from Tamura texture features</li>
+          <li>'contrast': contrast from Tamura texture features</li>
+          <li>'directionality': directionality from Tamura texture features</li>
+          <li>
+            'wavelet(level 1) hue': wavelet feature from level 1 of a
+            three-level wavelet transform on the Hue channel.
+          </li>
+          <li>
+            'wavelet(level 1) saturation': wavelet feature from level 1 of a
+            three-level wavelet transform on the Saturation channel.
+          </li>
+          <li>
+            'wavelet(level 1) brightness': wavelet feature from level 1 of a
+            three-level wavelet transform on the Brightness channel.
+          </li>
+          <li>
+            'wavelet(level 2) hue': wavelet feature from level 2 of a
+            three-level wavelet transform on the Hue channel.
+          </li>
+          <li>
+            'wavelet(level 2) saturation': wavelet feature from level 2 of a
+            three-level wavelet transform on the Saturation channel.
+          </li>
+          <li>
+            'wavelet(level 2) brightness': wavelet feature from level 2 of a
+            three-level wavelet transform on the Brightness channel.
+          </li>
+          <li>
+            'wavelet(level 3) hue': wavelet feature from level 3 of a
+            three-level wavelet transform on the Hue channel.
+          </li>
+          <li>
+            'wavelet(level 3) saturation': wavelet feature from level 3 of a
+            three-level wavelet transform on the Saturation channel.
+          </li>
+          <li>
+            'wavelet(level 3) brightness': wavelet feature from level 3 of a
+            three-level wavelet transform on the Brightness channel.
+          </li>
+          <li>
+            'wavelet(level 1)': The sum over level 1 Hue, Saturation and
+            Brightness features
+          </li>
+          <li>
+            'wavelet(level 2)': The sum over level 2 Hue, Saturation and
+            Brightness features
+          </li>
+          <li>
+            'wavelet(level 3)': The sum over level 3 Hue, Saturation and
+            Brightness features
+          </li>
+          <li>
+            'GLCM contrast (hue)': a measure of the hue contrast between a pixel
+            and its neighbor over the whole image
+          </li>
+          <li>
+            'GLCM contrast (saturation)': a measure of the saturation contrast
+            between a pixel and its neighbor over the whole image
+          </li>
+          <li>
+            'GLCM contrast (brightness)': a measure of the brightness contrast
+            between a pixel and its neighbor over the whole image
+          </li>
+          <li>
+            'GLCM correlation (hue)': statistical measure of how correlated a
+            pixel's hue is to its neighbor's over the whole image. Range = [-1
+            1]. Correlation is 1 or -1 for a perfectly positively or negatively
+            correlated image. Correlation is NaN for a constant image.
+          </li>
+          <li>
+            'GLCM correlation (saturation)': statistical measure of how
+            correlated a pixel's saturation is to its neighbor's over the whole
+            image.
+          </li>
+          <li>
+            'GLCM correlation (brightness)': statistical measure of how
+            correlated a pixel's brightness is to its neighbor's over the whole
+            image.
+          </li>
+          <li>
+            'GLCM energy (hue)': summation of squared elements in the hue GLCM.
+            Range = [0 1]. Energy is 1 for a constant image.
+          </li>
+          <li>
+            'GLCM energy (saturation)': summation of squared elements in the
+            saturation GLCM. Range = [0 1]. Energy is 1 for a constant image.
+          </li>
+          <li>
+            'GLCM energy (brightness)': summation of squared elements in the
+            brightness GLCM. Range = [0 1]. Energy is 1 for a constant image.
+          </li>
+          <li>
+            'GLCM homogeneity (hue)': closeness of the distribution of elements
+            in the hue GLCM to the hue GLCM diagonal.
+          </li>
+          <li>
+            'GLCM homogeneity (saturation)': closeness of the distribution of
+            elements in the saturation GLCM to the hue GLCM diagonal.
+          </li>
+          <li>
+            'GLCM homogeneity (brightness)': closeness of the distribution of
+            elements in the brightness GLCM to the hue GLCM diagonal.
+          </li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Category: 'lines' (see [3])</b></p>
+          <li>
+            'static absolute line slopes': Average static line slope. Lines are
+            extracted based on Hough Transform, static lines have slope less
+            than 15 degrees.
+          </li>
+          <li>
+            'static relative line slopes': Average static line slope relative to
+            the closest axis.
+          </li>
+          <li>'length of static lines': Average length of static lines.</li>
+          <li>
+            'dynamic absolute line slopes': Average dynamic line slope, dynamic
+            lines have slope larger than 15 degrees.
+          </li>
+          <li>
+            'dynamic relative line slopes': Average dynamic line slope relative
+            to the closest axis.
+          </li>
+          <li>'length of dynamic lines': Average length of dynamic lines.</li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Category: 'rule of third' (see [3])</b></p>
+          <li>
+            'mean hue of inner rectangle': mean hue of the inner rectangle,
+            where painting is divided into 9 equal parts.
+          </li>
+          <li>
+            'mean saturation of inner rectangle': mean saturation of the inner
+            rectangle, where painting is divided into 9 equal parts.
+          </li>
+          <li>
+            'mean brightness of inner rectangle':mean brightness of the inner
+            rectangle, where painting is divided into 9 equal parts.
+          </li>
+          <li>
+            'ratio of wavelet coef of inner rectgl vs. image. Hue': ratio of
+            wavelet coefficients of inner rectangle vs. whole image, for the hue
+            channel
+          </li>
+          <li>
+            'ratio of wavelet coef of inner rectgl vs. image. Saturation': ratio
+            of wavelet coefficients of inner rectangle vs. whole image, for the
+            saturation channel
+          </li>
+          <li>
+            'ratio of wavelet coef of inner rectgl vs. image. Brightness': ratio
+            of wavelet coefficients of inner rectangle vs. whole image, for the
+            brightness channel
+          </li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Category: 'faces and skin' (see [3])</b></p>
+          <li>
+            'number of frontal faces': Number of faces detected in the image
+          </li>
+          <li>
+            'relative size of the biggest face': size of the biggest face with
+            respect to the image
+          </li>
+          <li>'number of skin pixels':the number of pixels in skin color</li>
+          <li>
+            'amount of skin wrt the size of faces': the proportion of the “skin
+            area” to the size of the detected face
+          </li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Category: 'bilateral symmetry' (see [9])</b></p>
+          <li>
+            'bilateral symmetry number': Number of symmetrical feature points
+            involved in the maximum bilateral symmetry line,
+          </li>
+          <li>
+            'bilateral symmetry radius': Radius of the maximum bilateral
+            symmetry line (length of the norm in the Hough coordinate system),
+          </li>
+          <li>
+            'bilateral symmetry angle': Angle of the maximum bilateral symmetry
+            line in the Hough coordinate system,
+          </li>
+          <li>
+            'bilateral symmetry strength': Normalized score of the maximum
+            symmetry line in the maximum symmetry line voting precedure,
+          </li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Category: 'rotational symmetry' (see [9])</b></p>
+          <li>
+            'rotational symmetry radius 1': Radius of the maximum rotational
+            symmetry
+          </li>
+          <li>
+            rotational symmetry X coord 1': X coordinate of the maximum
+            rotational symmetry
+          </li>
+          <li>
+            'rotational symmetry Y coord 1': Y coordinate of the maximum
+            rotational symmetry
+          </li>
+          <li>
+            'rotational symmetry radius 2': Radius of the second maximum
+            rotational symmetry
+          </li>
+          <li>
+            rotational symmetry X coord 2': X coordinate of the second maximum
+            rotational symmetry
+          </li>
+          <li>
+            'rotational symmetry Y coord 2': Y coordinate of the second maximum
+            rotational symmetry
+          </li>
+
+          <li>
+            'rotational symmetry radius 3': Radius of the third maximum
+            rotational symmetry
+          </li>
+          <li>
+            rotational symmetry X coord 3': X coordinate of the third maximum
+            rotational symmetry
+          </li>
+          <li>
+            'rotational symmetry Y coord 3': Y coordinate of the third maximum
+            rotational symmetry
+          </li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Category: 'radial symmetry' (see [9])</b></p>
+
+          <li>
+            'radial symmetry map distribution 0' to 'radial symmetry map
+            distribution 35': Each of the 36 features is one component in the
+            distribution of symmetry map after radial symmetry transformation.
+          </li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Category: 'genre'</b></p>
+          <li>'genre_is_missing': Genre of the painting is missing</li>
+          <li>
+            'genre_is_portrait': Genre of the painting is portrait, according to
+            WikiArt
+          </li>
+          <li>
+            'genre_is_landscape': Genre of the painting is landscape, according
+            to WikiArt
+          </li>
+          <li>
+            'genre_is_still_life': Genre of the painting is still life,
+            according to WikiArt
+          </li>
+          <li>
+            'genre_is_religious_painting': Genre of the painting is religious
+            painting, according to WikiArt
+          </li>
+          <li>
+            'genre_is_sketch_and_study': Genre of the painting is sketch and
+            study, according to WikiArt
+          </li>
+          <li>
+            'genre_is_genre_painting': Genre of the painting is genre painting,
+            according to WikiArt
+          </li>
+          <li>
+            'genre_is_illustration': Genre of the painting is illustration,
+            according to WikiArt
+          </li>
+          <li>
+            'genre_is_cityscape': Genre of the painting is cityscape, according
+            to WikiArt
+          </li>
+          <li>
+            'genre_is_nude_painting': Genre of the painting is nude painting,
+            according to WikiArt
+          </li>
+          <li>
+            'genre_is_abstract_painting': Genre of the painting is abstract
+            painting, according to WikiArt
+          </li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p><b>Category: 'artstyle'</b></p>
+          <li>
+            'artstyle_is_Post_Impressionism': Style of the painting is Post
+            Impressionism, according to WikiArt
+          </li>
+          <li>'artstyle_is_Expressionism'</li>
+          <li>'artstyle_is_Impressionism'</li>
+          <li>'artstyle_is_Northern_Renaissance'</li>
+          <li>'artstyle_is_Realism'</li>
+          <li>'artstyle_is_Romanticism'</li>
+          <li>'artstyle_is_Art_Nouveau_Modern'</li>
+          <li>'artstyle_is_Symbolism'</li>
+          <li>'artstyle_is_Baroque'</li>
+          <li>'artstyle_is_Abstract_Expressionism'</li>
+          <li>'artstyle_is_Naive_Art_Primitivism'</li>
+          <li>'artstyle_is_Rococo'</li>
+          <li>'artstyle_is_Cubism'</li>
+          <li>'artstyle_is_Naive_Art_Primitivism'</li>
+          <li>'artstyle_is_Pop_Art'</li>
+          <li>'artstyle_is_Pointillism'</li>
+          <li>'artstyle_is_Early_Renaissance'</li>
+          <li>'artstyle_is_Ukiyo_e'</li>
+          <li>'artstyle_is_Mannerism_Late_Renaissance'</li>
+          <li>'artstyle_is_High_Renaissance'</li>
+          <li>'artstyle_is_Minimalism'</li>
+          <li>'artstyle_is_Fauvism'</li>
+          <li>'artstyle_is_Action_painting'</li>
+          <li>'artstyle_is_Contemporary_Realism'</li>
+          <li>'artstyle_is_Synthetic_Cubism'</li>
+          <li>'artstyle_is_New_Realism'</li>
+          <li>'artstyle_is_Analytical_Cubism'</li>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            <b>Category: 'score and coordinates of bounding boxes of person'</b>
+          </p>
+          <li>'bbox PCA 0' to 'bbox PCA 24':</li>
+          The raw bbox feature contains bounding boxes of person. It's a 50D
+          vector with the first 10D consisting the scores of the top 10 bounding
+          boxes, and the 40D consists of the corresponding coordinates. We
+          finutuned Faster R-CNN on the PeopleArt dataset to extract the
+          bounding boxes. The finetuned model can be downloaded from
+          <a
+            href="https://drive.google.com/file/d/1BbJLMOrTjbPQOXL_QNM2L2pJONaaDBfG/view?usp=sharing"
+            >here</a
+          >
+          We use PCA to reduce the 50D vector to 25D, while perserving 99%
+          variance.
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <table align="center" width="700px">
+      <center><h1>References</h1></center>
+      <tr>
+        <td>
+          <p>
+            [1] Sartori, A., Yanulevskaya, V., Salah, A. A., Uijlings, J.,
+            Bruni, E., & Sebe, N. (2015). Affective analysis of professional and
+            amateur abstract paintings using statistical analysis and art
+            theory. ACM Transactions on Interactive Intelligent Systems (TiiS),
+            5(2), 1-27.
+          </p>
+          <p>
+            [2] Lu, X., Suryanarayan, P., Adams Jr, R. B., Li, J., Newman, M.
+            G., & Wang, J. Z. (2012, October). On shape and the computability of
+            emotions. In Proceedings of the 20th ACM international conference on
+            Multimedia (pp. 229-238).
+          </p>
+          <p>
+            [3]Machajdik, J., & Hanbury, A. (2010, October). Affective image
+            classification using features inspired by psychology and art theory.
+            In Proceedings of the 18th ACM international conference on
+            Multimedia (pp. 83-92).
+          </p>
+          <p>
+            [4] Yanulevskaya, V., van Gemert, J. C., Roth, K., Herbold, A. K.,
+            Sebe, N., & Geusebroek, J. M. (2008, October). Emotional valence
+            categorization using holistic image features. In 2008 15th IEEE
+            international conference on Image Processing (pp. 101-104). IEEE.
+          </p>
+          <p>
+            [5] Lee, J., Choi, J., & Seo, S. (2020). Emotion-inspired painterly
+            rendering. IEEE Access, 8, 104565-104578.
+          </p>
+          <p>
+            [6] Rao, T., Li, X., & Xu, M. (2020). Learning multi-level deep
+            representations for image emotion classification. Neural Processing
+            Letters, 51(3), 2043-2061.
+          </p>
+          <p>
+            [7] Lu, X., Lin, Z., Jin, H., Yang, J., & Wang, J. Z. (2014,
+            November). Rapid: Rating pictorial aesthetics using deep learning.
+            In Proceedings of the 22nd ACM international conference on
+            Multimedia (pp. 457-466).
+          </p>
+          <p>
+            [8] You, Q., Luo, J., Jin, H., & Yang, J. (2016, February). Building
+            a large scale dataset for image emotion recognition: The fine print
+            and the benchmark. In Proceedings of the AAAI conference on
+            artificial intelligence (Vol. 30, No. 1).
+          </p>
+          <p>
+            [9] Zhao, S., Gao, Y., Jiang, X., Yao, H., Chua, T. S., & Sun, X.
+            (2014, November). Exploring principles-of-art features for image
+            emotion recognition. In Proceedings of the 22nd ACM international
+            conference on Multimedia (pp. 47-56).
+          </p>
+          <p>
+            [10] Kim, H. R., Kim, Y. S., Kim, S. J., & Lee, I. K. (2018).
+            Building emotional machines: Recognizing image emotions through deep
+            neural networks. IEEE Transactions on Multimedia, 20(11), 2980-2992.
+          </p>
+          <p>
+            [11] Elgammal, A., Liu, B., Kim, D., Elhoseiny, M., & Mazzone, M.
+            (2018, April). The shape of art history in the eyes of the machine.
+            In Proceedings of the AAAI Conference on Artificial Intelligence
+            (Vol. 32, No. 1).
+          </p>
+          <p>
+            [12] Côté-Allard, U., Campbell, E., Phinyomark, A., Laviolette, F.,
+            Gosselin, B., & Scheme, E. (2020). Interpreting deep learning
+            features for myoelectric control: A comparison with handcrafted
+            features. Frontiers in bioengineering and biotechnology, 8, 158.
+          </p>
+          <p>
+            [13] Achlioptas, P., Ovsjanikov, M., Haydarov, K., Elhoseiny, M., &
+            Guibas, L. J. (2021). ArtEmis: Affective language for visual art. In
+            Proceedings of the IEEE/CVF Conference on Computer Vision and
+            Pattern Recognition (pp. 11569-11579).
+          </p>
+          <p>
+            [14] Lundberg, S. M., & Lee, S. I. (2017, December). A unified
+            approach to interpreting model predictions. In Proceedings of the
+            31st international conference on neural information processing
+            systems (pp. 4768-4777).
+          </p>
+        </td>
+      </tr>
+    </table>
+
+    <hr />
+
+
+    <br />
+
+    <br />
+  </body>
+</html>
