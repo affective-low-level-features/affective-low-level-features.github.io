@@ -132,7 +132,11 @@
 
 <html>
   <head>
+<<<<<<< HEAD
     <title>What makes a painting emotional?</title>
+=======
+    <title>This is my paper title</title>
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
     <meta property="og:image" content="Path to my teaser.png" />
     <!-- Facebook automatically scrapes this. Go to https://developers.facebook.com/tools/debug/ if you update and want to force Facebook to rescrape. -->
     <meta property="og:title" content="Creative and Descriptive Paper Title." />
@@ -155,10 +159,14 @@
   <body>
     <br />
     <center>
+<<<<<<< HEAD
       <span style="font-size: 36px"
         >What makes a painting emotional? Compare and contrast Art Theory with
         deep model’s knowledge
       </span>
+=======
+      <span style="font-size: 36px">What makes a painting emotion? </span>
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
       <table align="center" width="600px">
         <table align="center" width="600px">
           <tr>
@@ -213,12 +221,15 @@
             </center>
           </td>
         </tr>
+<<<<<<< HEAD
         <tr>
           <td align="center">
             Figure 1. Example paintings from the ArtEmis dataset with ground
             truth emotion distribution. Majority emotion boldened.
           </td>
         </tr>
+=======
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
       </table>
     </center>
 
@@ -232,11 +243,16 @@
         <td>
           <p>
             Paintings evoke subjective emotions. An emotion could be evoked by
+<<<<<<< HEAD
             the <b>semantic</b> implication of the subject matter. For example,
+=======
+            the semantic implication of the subject matter. For example,
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
             paintings of sharks may evoke a sense of fear. Other times, the
             reasoning behind emotional responses is more nuanced and happens on
             a subconcious level. For example, one might feel excited by the
             painting of a shark if the painting were drawn in lively and bright
+<<<<<<< HEAD
             <b>colors</b>; a portrait with neural expression could be
             interpreted as angry if hard <b>lines</b> and sharp
             <b>angles</b> where emphasized. It is therefore interesting from an
@@ -255,6 +271,25 @@
             features, we have shown that using handcrafted features as
             additional input has the promising potential of improving the
             classification accuracy of <b>deep models</b>.
+=======
+            colors; a portrait with neural expression could be interpreted as
+            angry if hard lines and sharp angles where emphasized. It is
+            therefore interesting from an Art Theory perspective to understand
+            what features are more powerful at evoking emotional responses in
+            humans, and to find possible interpretations for given emotional
+            responses.
+          </p>
+          <p>
+            In this project, we seek to find the most important features in
+            emotion classification of paintings. Our result suggests that out of
+            the 153 curated features, 5 features stand out with significant
+            margin and they are: GLCM homogeneity (saturation), colorfulness,
+            genre_is_landscape, amount of black, and the first principle
+            component of bounding boxes of people. In addition to obtaining a
+            ranking of the 153 curated features, we have shown that using
+            handcrafted features as additional input has the promising potential
+            of improving the classification accuracy of deep models.
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
           </p>
         </td>
       </tr>
@@ -269,6 +304,7 @@
       <tr>
         <td>
           <p>
+<<<<<<< HEAD
             <b>Affective analysis</b> is the research area that aims to identiy
             the emotion expressed in the input. Earlier work in affective
             analysis of paintings proposed <b>handcrafted features</b> based on
@@ -288,10 +324,31 @@
             layers of different levels in a CNN as feature extraction; Lu et al.
             [7] introduced a parallel CNN architecture that takes in both the
             global picture and a local patch to rate pictorial aesthetics.
+=======
+            Affective analysis is the research area that aims to identiy the
+            emotion expressed in the input. Earlier work in affective analysis
+            of paintings proposed handcrafted features based on psychology and
+            art theory[3], the visual effect of shapes[2], principles of art[9],
+            Itten’s color theory, texture[4], among a variety of low-level
+            features. The main limitation of these handcrafted features is their
+            inability at capturing global composition and semantics.
+          </p>
+
+          <p>
+            With the advance of deep learning, extracting global-level semantic
+            features in paintings was made possible. Several deep architectures
+            had been proposed for extracting both low-level and high-level
+            features simultaneously. For example, [6] introduced a fusion model
+            that fuses output from convolutional layers of different levels in a
+            CNN as feature extraction; [7] introduced a parallel CNN
+            architecture that takes in both the global picture and a local patch
+            to rate pictorial aesthetics.
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
           </p>
 
           <p>
             Few work has compared handcrafted features with deep-learning based
+<<<<<<< HEAD
             features. You et al. [8] compared the performance between
             handcrafted feature sets, raw ImageNet-CNN representations, and
             finetuned-CNN representations, and found the deep-learning based
@@ -312,6 +369,28 @@
             classification prediction. To the best of our knowledge, no work so
             far has focused on the interpretability of deep-learning based
             features for emotion classification of paintings.
+=======
+            features. [8] compared the performance between handcrafted feature
+            sets, raw ImageNet-CNN representations, and finetuned-CNN
+            representations, and found the deep-learning based representations
+            to outperform handcrafted features. However, they did not analyse
+            the correlation between handcrafted and learned features. [10]
+            combined handcrafted features with the final output of a pre-trained
+            model (object-tags) and observed improvement in classification
+            accuracy of emotions in images.
+          </p>
+
+          <p>
+            On the line of interpreting deep representations, [11] analysed
+            representations learned by finetuned pretrained CNN models on a
+            style classification task using various projection methods. [12]
+            analysed the relationship between handcrafted and learned features
+            for gesture classification through employing topological data
+            analysis, Guided Grad-CAM, and feature classification prediction. To
+            the best of our knowledge, no work so far has focused on the
+            interpretability of deep-learning based features for emotion
+            classification of paintings.
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
           </p>
         </td>
       </tr>
@@ -320,6 +399,7 @@
     <hr />
     <table align="center" width="850px">
       <center>
+<<<<<<< HEAD
         <h1>Dataset</h1>
       </center>
       <tr>
@@ -351,18 +431,28 @@
     <hr />
     <table align="center" width="850px">
       <center>
+=======
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
         <h1>Method</h1>
       </center>
       <tr>
         <td>
           <p>
             <b>
+<<<<<<< HEAD
               To rank handcrafted features by their relative importance, we
               average over six individual rankings.</b
+=======
+              We use Artemis[13] as our dataset, which contans 80k WikiArt
+              paintings with ground-truth emotion distributions. To rank
+              handcrafted features by their relative importance, we aggregate
+              six individual rankings.</b
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
             >
           </p>
           <p><b>1. SHAP values</b></p>
           <p>
+<<<<<<< HEAD
             We approximate the SHAP value of each handcrafted feature in a
             linear SVM binary classifier, using 4000 background examples, 400
             explain examples, and 1000 permutations. We rank the features by
@@ -393,10 +483,31 @@
             every feature is 1 dimensional, we train the same number of linear
             SVMs as the number of handcrafted features. We repeat this precedure
             with multiclass classification to obtain 2 separate rankings.
+=======
+            We approximate the SHAP values of each feature on the task of
+            emotion classification. We rank the features by the absolute value
+            of their SHAP value. SHAP values introduced in [14] as a unified
+            measure of feature importance. They are an the Shapley values of a
+            conditional expectation function of the original model. In simple
+            words, the SHAP value of a feature represents the marginal
+            contribution of that feature to the final prediction. It takes
+            exponential time to calculate the true Shapley values as it requires
+            testing all permutations of the features, and therefore it is common
+            pratice to approximate it using some samplers. [14] introduced
+            efficient approximation methods and their
+            [API](https://shap.readthedocs.io/en/latest/index.html), which we
+            use in this project.
+          </p>
+          <p><b> 2. Support Vector Machines</b></p>
+          <p>
+            We use single feature values as input to SVM classifiers and rank
+            their prediction accuracy.
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
           </p>
           <p><b>3. Decision Tree Classifiers</b></p>
 
           <p>
+<<<<<<< HEAD
             As a third method to crossvalidate the ranking of the features, we
             train one binary Decision tree classifier using all handcrafted
             features, and calculate the feature importance for each handcrafted
@@ -408,12 +519,23 @@
             Again, we repeat this method with multi-class classication by
             training a multiclass decision tree classifier to obtain 2 separate
             rankings.
+=======
+            We use feature importance from Decision Tree Classifiers to rank the
+            handcrafted features.
+          </p>
+          <p>
+            We perform the above three rankings for both binary and multi-class
+            classification. Overall, we obtain 6 individual rankings. Finally,
+            we taking the sum of the 6 rankings to produce the overall ranking
+            of the handcrafted features.
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
           </p>
 
           <tr>
             <td>
               <br />
               <p>
+<<<<<<< HEAD
                 <b
                   >Finding correlation between handcrafted and learned
                   features.</b
@@ -453,6 +575,34 @@
                 Rc^2 values are used as an <b>approximation</b> to the
                 proportion of variance of the feature set with smaller variance
                 explained by the feature set with larger variance.
+=======
+                <b>To correlate handcrafted features with learned features,</b>
+                we find what information is encoded in the learned features
+                using handcrafted features are landmarks.
+              </p>
+              <p>
+                To correlate single hancrafted features with learned features,
+                we use linear regression to approximate handcrafted feature
+                using learned features. As we use 100D to approximate 1D, low
+                correlation suggests low information sharage between the
+                handcrafted feature and the learned representation.
+              </p>
+              <p>
+                We also group single features into feature groups to better
+                understand the aggreate effect of these feature groups. To
+                correlate handcrafted feature groups with learned features, we
+                use Canonical Correlation Analysis to find pairs of shared
+                latent variables and calculate the shared variance between these
+                latent variables. In detail, we find pairs of canonical variates
+                with siginificant correlation (>0.45), and find shared variance
+                of each canonical variates by taking the square of their
+                correlation coefficient. We then calculate the proportion of
+                variance shared between the variable sets across all canonical
+                variates Rc^2. Since each pair of canonical variates aim to
+                explain the variance that the existing pairs did not explain,
+                each pair contribute (1- Rc^2) * (correlation_coefficient)^2
+                recursively.
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
               </p>
             </td>
           </tr>
@@ -462,6 +612,7 @@
 
     <hr />
 
+<<<<<<< HEAD
 
     <table align="center" width="850px">
       <center>
@@ -496,10 +647,34 @@
         <td>
           Figure 2. Top 10 features from each ranking method, color coded for
           better visibility.
+=======
+    <table align="center" width="850px">
+      <center>
+        <h1>Handcrafted features</h1>
+      </center>
+    </table>
+    <table align="center" width="420px">
+      <center>
+        <td>
+          <img
+            class="round"
+            style="width: 420px"
+            src="./resources/word cloud.png"
+          />
+        </td>
+      </center>
+    </table>
+
+    <table align="center" width="850px" style="font-size: 10px">
+      <tr>
+        <td>
+          <h4>Full list of handcrafted features:</h4>
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
         </td>
       </tr>
       <tr>
         <td>
+<<<<<<< HEAD
           <br /><br /><br />
           <p>
             The top three features, GLCM contrast (saturation), colorfulness and
@@ -653,10 +828,132 @@
       </tr>
     </table>
     <br />
+=======
+          'saturation and brightness': ['mean saturation', 'mean brightness',
+          'pleasure', 'arousal', 'dominance']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'hue': ['saturation-weighted vector-based mean hue',
+          'saturation-weighted angular dispersion', 'vector-based mean hue',
+          'angular dispersion', 'colorfulness', 'black', 'blue', 'brown',
+          'green', 'gray', 'orange', 'pink', 'purple', 'red', 'white', 'yellow']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'texture': ['coarseness', 'contrast', 'directionality', 'wavelet(level
+          1) hue', 'wavelet(level 1) saturation', 'wavelet(level 1) brightness',
+          'wavelet(level 2) hue', 'wavelet(level 2) saturation', 'wavelet(level
+          2) brightness', 'wavelet(level 3) hue', 'wavelet(level 3) saturation',
+          'wavelet(level 3) brightness', 'wavelet(level 1)', 'wavelet(level 2)',
+          'wavelet(level 3)', 'GLCM contrast (hue)', 'GLCM contrast
+          (saturation)', 'GLCM contrast (brightness)', 'GLCM correlation (hue)',
+          'GLCM correlation (saturation)', 'GLCM correlation (brightness)',
+          'GLCM energy (hue)', 'GLCM energy (saturation)', 'GLCM energy
+          (brightness)', 'GLCM homogeneity (hue)', 'GLCM homogeneity
+          (saturation)', 'GLCM homogeneity (brightness)']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'lines': ['static absolute line slopes', 'static relative line
+          slopes', 'length of static lines', 'dynamic absolute line slopes',
+          'dynamic relative line slopes', 'length of dynamic lines']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'rule of third': ['mean hue of inner rectangle', 'mean saturation of
+          inner rectangle', 'mean brightness of inner rectangle', 'ratio of
+          wavelet coef of inner rectgl vs. image. Hue', 'ratio of wavelet coef
+          of inner rectgl vs. image. Saturation', 'ratio of wavelet coef of
+          inner rectgl vs. image. Brightness']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'faces and skin': ['number of frontal faces', 'relative size of the
+          biggest face', 'number of skin pixels', 'amount of skin wrt the size
+          of faces']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'bilateral symmetry': ['bilateral symmetry number', 'bilateral
+          symmetry radius', 'bilateral symmetry angle', 'bilateral symmetry
+          strength']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'rotational symmetry': ['rotational symmetry radius 1', 'rotational
+          symmetry X coord 1', 'rotational symmetry Y coord 1', 'rotational
+          symmetry strength 1', 'rotational symmetry radius 2', 'rotational
+          symmetry X coord 2', 'rotational symmetry Y coord 2', 'rotational
+          symmetry strength 2', 'rotational symmetry radius 3', 'rotational
+          symmetry X coord 3', 'rotational symmetry Y coord 3', 'rotational
+          symmetry strength 3']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'radial symmetry':['radial symmetry PCA 0', 'radial symmetry PCA 1',
+          'radial symmetry PCA 2', 'radial symmetry PCA 3', 'radial symmetry PCA
+          4', 'radial symmetry PCA 5', 'radial symmetry PCA 6', 'radial symmetry
+          PCA 7', 'radial symmetry PCA 8', 'radial symmetry PCA 9']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'genre': ['genre_is_missing', 'genre_is_portrait',
+          'genre_is_landscape', 'genre_is_still_life',
+          'genre_is_religious_painting', 'genre_is_sketch_and_study',
+          'genre_is_genre_painting', 'genre_is_illustration',
+          'genre_is_cityscape', 'genre_is_nude_painting',
+          'genre_is_abstract_painting']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'artstyle': ['artstyle_is_Post_Impressionism',
+          'artstyle_is_Expressionism', 'artstyle_is_Impressionism',
+          'artstyle_is_Northern_Renaissance', 'artstyle_is_Realism',
+          'artstyle_is_Romanticism', 'artstyle_is_Art_Nouveau_Modern',
+          'artstyle_is_Symbolism', 'artstyle_is_Baroque',
+          'artstyle_is_Abstract_Expressionism',
+          'artstyle_is_Naive_Art_Primitivism', 'artstyle_is_Rococo',
+          'artstyle_is_Cubism', 'artstyle_is_Color_Field_Painting',
+          'artstyle_is_Pop_Art', 'artstyle_is_Pointillism',
+          'artstyle_is_Early_Renaissance', 'artstyle_is_Ukiyo_e',
+          'artstyle_is_Mannerism_Late_Renaissance',
+          'artstyle_is_High_Renaissance', 'artstyle_is_Minimalism',
+          'artstyle_is_Fauvism', 'artstyle_is_Action_painting',
+          'artstyle_is_Contemporary_Realism', 'artstyle_is_Synthetic_Cubism',
+          'artstyle_is_New_Realism', 'artstyle_is_Analytical_Cubism']
+        </td>
+      </tr>
+      <tr>
+        <td>
+          'score and coordinates of bounding boxes of person':['bbox PCA 0',
+          'bbox PCA 1', 'bbox PCA 2', 'bbox PCA 3', 'bbox PCA 4', 'bbox PCA 5',
+          'bbox PCA 6', 'bbox PCA 7', 'bbox PCA 8', 'bbox PCA 9', 'bbox PCA 10',
+          'bbox PCA 11', 'bbox PCA 12', 'bbox PCA 13', 'bbox PCA 14', 'bbox PCA
+          15', 'bbox PCA 16', 'bbox PCA 17', 'bbox PCA 18', 'bbox PCA 19', 'bbox
+          PCA 20', 'bbox PCA 21', 'bbox PCA 22', 'bbox PCA 23', 'bbox PCA 24']
+        </td>
+      </tr>
+      <tr>
+        <td></td>
+      </tr>
+    </table>
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
 
     <hr />
 
     <table align="center" width="850px">
+<<<<<<< HEAD
       <tr align="center">
         <td>
           <h5>Correlation between handcrafted features and learned features</h5>
@@ -699,6 +996,23 @@
           <b>no improvement</b> to the accuracy of the SVM classifier,
           suggesting that those features are <b>not helpful</b> to the task and
           are <b>not learned</b> by the deep model.
+=======
+      <center>
+        <h1>Analysis results</h1>
+      </center>
+      <tr>
+        <td>
+          We carry out the precedure described in the Methods section and obtain
+          the following ranking of the handcrafted features. The plot below
+          displays the overall ranking of the 179 curated handcrafted features.
+          The highst ranking features are found toward the bottom of the plot.
+          The top 6 features are
+          <b
+            >'GLCM contrast (saturation)', 'colorfulness', 'black',
+            'genre_is_landscape', 'bbox PCA #0' and 'GLCM homogeneity
+            (saturation)'</b
+          >.
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
         </td>
       </tr>
 
@@ -708,6 +1022,7 @@
           <img
             class="round"
             style="width: 600px"
+<<<<<<< HEAD
             src="./resources/group_corr.png"
           />
         </td>
@@ -1157,6 +1472,156 @@
     <hr />
 
     <table align="center" width="700px">
+=======
+            src="./resources/ranking.png"
+          />
+        </td>
+      </tr>
+    </table>
+
+    <table align="center" width="850px">
+      <tr>
+        <td>
+          <br />
+          Some features are more powerful when viewed in aggregation. Thus, we
+          repeat the same analysis for feature subgroups. Feature subgroups are
+          defined as shown in the Handcrafted Features section. Each feature
+          group is represented by a high-dimensional feature vector, which is a
+          concatenation of single features. The plot below displays the overall
+          ranking of the feature categories. The highst ranking feature
+          categories are found toward the bottom of the plot. The top 3 most
+          important feature categories are <b>hue, texture, and artstyle</b>.
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 500px"
+            src="./resources/subgroup_ranking.png"
+          />
+        </td>
+      </tr>
+    </table>
+    <br />
+
+    <table align="center" width="850px">
+      <tr>
+        <td>
+          In addition to the importance of each feature, we are interested in
+          their net effect emotional on a painting's emotional impact. Below we
+          show the SHAP values of some selected features, which indicate the
+          contribution of the feature value in making the model predict the
+          positive emotion class.
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          <img
+            class="round"
+            style="width: 500px"
+            src="./resources/contribution to positive.png"
+          />
+        </td>
+      </tr>
+      <tr align="center" style="font-size: 10px">
+        <td>
+          Larger values of GLCM contrast (saturation) strongly and negatively
+          correlates with the model predicting positive emotion.
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          <img
+            class="round"
+            style="width: 500px"
+            src="./resources/contribution to positive 2.png"
+          />
+        </td>
+      </tr>
+      <tr align="center" style="font-size: 10px">
+        <td>
+          Larger values of colorfulness strongly and negatively correlates with
+          the model predicting positive emotion.
+        </td>
+      </tr>
+
+      <tr align="center">
+        <td>
+          <img
+            class="round"
+            style="width: 500px"
+            src="./resources/contribution to positive 3.png"
+          />
+        </td>
+      </tr>
+      <tr align="center" style="font-size: 10px">
+        <td>
+          Larger amount of black strongly and negatively correlates with the
+          model predicting positive emotion.
+        </td>
+      </tr>
+
+      <tr align="center">
+        <td>
+          <img
+            class="round"
+            style="width: 500px"
+            src="./resources/contribution to positive 4.png"
+          />
+        </td>
+      </tr>
+      <tr align="center" style="font-size: 10px">
+        <td>
+          Landscape paintings strongly and positively correlates with the model
+          predicting positive emotion.
+        </td>
+      </tr>
+    </table>
+
+    <table align="center" width="850px">
+      <tr>
+        <td>
+          The follow sections shows our result in correlating handcrafted
+          features and deep-learning based features. The plot below shows two
+          columns. The first column shows the proportion of variance shared
+          between all canonical variates, which approximately informs us to what
+          extent, the feature set with larger variance explains the feature set
+          with smaller variance. The second column shows the improvement in
+          classifier accuracy if we were to concatenate the handcrafred feature
+          subgroup to the learned features, compared to only using learned
+          features. As we can see, some low-level features are explained by
+          learned features with varianced explained approximating 100%,
+          suggesting learned features almost completely encode these low-level
+          information. On the other hand, there is less information overlap on
+          high-level variables such as artstyle, genre, and bboxes. Some
+          low-level features correlate weakly with learned features, possibly
+          because the model did not pick up on these features during training.
+        </td>
+      </tr>
+
+      <tr align="center">
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/group_corr.png"
+          />
+        </td>
+      </tr>
+
+      <tr align="center">
+        <td>
+          <a href="Analysis_summary.html"><h3>[Full Analysis summary]</h3></a>
+        </td>
+      </tr>
+    </table>
+
+    <hr />
+    <table align = center width = 700px >
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
       <center><h1>References</h1></center>
       <tr>
         <td>
@@ -1231,7 +1696,11 @@
           </p>
           <p>
             [13] Achlioptas, P., Ovsjanikov, M., Haydarov, K., Elhoseiny, M., &
+<<<<<<< HEAD
             Guibas, L. J. (2021). ArtEmis: Affective language for visual art. In
+=======
+            Guibas, L. J. (2021). Artemis: Affective language for visual art. In
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
             Proceedings of the IEEE/CVF Conference on Computer Vision and
             Pattern Recognition (pp. 11569-11579).
           </p>
@@ -1247,7 +1716,10 @@
 
     <hr />
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> e47d2701dd65b6222cb792e82a29612c2315d89a
     <br />
 
     <br />
