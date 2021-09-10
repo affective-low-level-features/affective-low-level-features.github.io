@@ -156,8 +156,9 @@
     <br />
     <center>
       <span style="font-size: 36px"
-        >What makes a painting emotional? Compare and contrast Art Theory with
-        deep model’s knowledge
+        >What makes a painting emotional? Interpreting the emotional aspect of
+        paintings by combining art-theory and deep-learning features. Compare
+        and contrast Art Theory with deep model’s knowledge
       </span>
       <table align="center" width="600px">
         <table align="center" width="600px">
@@ -231,35 +232,78 @@
       <tr>
         <td>
           <p>
-            Paintings evoke subjective emotions. An emotion could be evoked by
-            the <b>semantic</b> implication of the subject matter. For example,
-            paintings of sharks may evoke a sense of fear. Other times, the
-            reasoning behind emotional responses is more nuanced and happens on
-            a subconcious level. For example, one might feel excited by the
-            painting of a shark if the painting were drawn in lively and bright
-            <b>colors</b>; a portrait with neural expression could be
+            <b>Paintings</b> evoke subjective <b>emotions</b>. An emotion may be
+            evoked by the <b>semantic implication</b> of the illustrated subject
+            matter or the subconscious impact of
+            <b>nonfigurative elements</b> such as shapes and colors in our
+            visual system. For example, a painting of sharks may evoke fear, yet
+            if it were drawn in bright and lively <b>colors</b> one might feel
+            excited by it. Similarly, a portrait with neural expression could be
             interpreted as angry if hard <b>lines</b> and sharp
             <b>angles</b> where emphasized. It is therefore interesting from an
-            Art Theory perspective to understand what <b>features</b> are more
-            powerful at evoking emotional responses in humans, and to find
-            possible <b>interpretations</b> for given emotional responses.
+            Art Theory perspective to understand what <b>features</b> of a
+            painting are more powerful at affecting the emotional responses in
+            humans.
           </p>
           <p>
-            In this project, we seek to find the most important features in
-            <b>emotion classification</b> of paintings. Our result suggests that
-            out of the 179 curated features, 6 features stand out with
-            significant margin and they are: GLCM contrast (saturation),
-            colorfulness, black, genre_is_landscape, the first principle
-            component of bounding boxes of people and GLCM homogeneity
-            (saturation). In addition to obtaining a ranking of the 179 curated
-            features, we have shown that using handcrafted features as
-            additional input has the promising potential of improving the
-            classification accuracy of <b>deep models</b>.
+            In this work, we find
+            <b>interpretation for human's emotional response to paintings</b>
+            through (1) analysing the importance of
+            <b>179 handcrafted features</b>. Specifically, we use
+            Art Theory andPsychology features [3, 9], low-level
+            classical vision features [3],
+            bounding boxes of people [15],genre [11], and
+            art style [16]; (2) interpreting the knowledge of a
+            <b>deep learning</b> based emotion classifier.
           </p>
+          <p>
+            Our findings suggest that <b>color</b> (hue, saturation, brightness)
+            <b>contrast</b> is the most important feature in predicting the
+            emotional response to paintings. In addition, we find that a
+            <b>deep CNN model</b> was able to automatically <b>learn</b> the
+            most useful low-level features, including color, texture,
+            composition statistics. Finally, we find that by explicitly adding
+            <b>semantic information</b> encoded in high-level features, we
+            <b>improve</b> the naive deep model's prediction accuracy.
+          </p>
+
+          <p></p>
         </td>
       </tr>
     </table>
     <br />
+    <hr />
+    <table align="center" width="520px">
+      <center><h1>Key Findings</h1></center>
+
+      <tr>
+        <td>
+          <ol type="1">
+            <li>
+              <b>Color</b> is the most important feature category for
+              interpreting the emotion of paintings. Top 3 most important
+              individual features are GLCM saturation contrast (local
+              <b>saturation</b> contrast), colorfulness (diversity of
+              <b>hue</b>), and black (level of <b>intensity</b>)
+            </li>
+            <br />
+            <li>
+              Deep-learning emotion classifier successfully learns the
+              <b> most useful low-level</b>
+              features out of a list of 179 features.
+            </li>
+            <br />
+
+            <li>
+              By explicitly adding as input the
+              <b>semantic information</b> encaptured by artstyle, genre, and
+              bounding boxes of people, we <b>improve</b> the naive deep
+              learning emotion prediction accuracy.
+            </li>
+          </ol>
+        </td>
+      </tr>
+    </table>
 
     <hr />
     <table align="center" width="850px">
@@ -272,7 +316,7 @@
             <b>Affective analysis</b> is the research area that aims to identiy
             the emotion expressed in the input. Earlier work in affective
             analysis of paintings proposed <b>handcrafted features</b> based on
-            psychology and art theory [3], the visual effect of shapes [2],
+            psychology and Art Theory [3], the visual effect of shapes [2],
             principles of art [9], Itten’s color theory, texture [4], among a
             variety of low-level features. The main <b>limitation</b> of these
             handcrafted features is their inability at capturing global
@@ -325,7 +369,7 @@
       <tr>
         <td>
           <p>
-            We use <b>ArtEmis</b> [13] as our dataset, which contans
+            We use <b>ArtEmis</b> [13] as our dataset, which contains
             <b>80k</b> WikiArt paintings with ground-truth emotion
             distributions. We use a subset of <b>30k</b> paintings that have a
             dominant emotion in the ground-truth distribution. The ArtEmis
@@ -333,17 +377,17 @@
             Contentment, Anger, Disgust, Fear, Sadness, and Something else.
           </p>
           <p>
-            For
-            <b>multiclass classification</b>, we use a balanced dataset with 8
-            emotions.We drop the emotion class <b>Anger</b> due to its
-            infrequency.
+            For all
+            <b>multiclass emotion classification</b> of Artmis mentioned
+            hereafter, we use a balanced Artemis dataset with 8 emotions. We
+            drop the emotion class <b>Anger</b> due to its infrequency.
           </p>
           <p>
-            For <b>binary classification</b>, we also use a balanced dataset.
-            The positive class encompasses Amusement, Awe, Excitement,
-            Contentment, and negative class encompasses Anger,Disgust, Fear,
-            Sadness. Please note we drop <b>Something Else</b> due to its
-            ambigouity.
+            For all <b>binary emotion classification</b> of Artmis mentioned
+            hereafter, we use a balanced binary Artemis dataset. The positive
+            class encompasses Amusement, Awe, Excitement, Contentment, and
+            negative class encompasses Anger,Disgust, Fear, Sadness. Please note
+            we drop <b>Something Else</b> due to its ambigouity.
           </p>
         </td>
       </tr>
@@ -358,8 +402,10 @@
           <p>
             <b>
               To rank handcrafted features by their relative importance, we
-              average over six individual rankings.</b
-            >
+              average over six individual rankings for reliability and
+              stability. We explain the methods for obtaining these individual
+              rankings below.
+            </b>
           </p>
           <p><b>1. SHAP values</b></p>
           <p>
@@ -367,7 +413,7 @@
             linear SVM binary classifier, using 4000 background examples, 400
             explain examples, and 1000 permutations. We rank the features by
             their absolute SHAP value. SHAP values was proposed as a unified
-            measure of feature importance for feature-based classifiers[14]. In
+            measure of feature importance for feature-based classifiers [14]. In
             simple terms, the SHAP value of a feature represents the marginal
             contribution of that feature to the final prediction. It takes
             exponential time to calculate the true SHAP values as it requires
@@ -461,7 +507,6 @@
     </table>
 
     <hr />
-
 
     <table align="center" width="850px">
       <center>
@@ -606,7 +651,7 @@
     <table align="center" width="850px">
       <tr align="center">
         <br />
-        <td><h5>Ranking of feature subgroups</h5></td>
+        <td><h3>Ranking of feature subgroups</h3></td>
       </tr>
       <tr>
         <td>
@@ -741,419 +786,427 @@
         </td>
       </center>
     </table>
+    <div style="overflow-y: scroll; height: 400">
+      <table
+        align="center"
+        width="850px"
+        style="font-size: 15px; overflow: scroll"
+      >
+        <tr>
+          <td>
+            Scroll to see the full list of handcrafted features.
+            <p><b>Category: 'saturation and brightness' (see [3])</b></p>
+            <li>
+              'mean saturation': mean saturation of the painting in HSY color
+              space
+            </li>
+            <li>
+              'mean brightness': mean brightness of the painting in HSY color
+              space
+            </li>
+            <li>'pleasure': 0.69 Brightness +0.22 Saturation</li>
+            <li>'arousal': −0.31 Brightness +0.60 Saturation</li>
+            <li>'dominance': 0.76 Brightness +0.32 Saturation</li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><b>Category: 'hue' (see [3])</b></p>
+            <li>
+              'saturation-weighted vector-based mean hue': Mean hue weighted by
+              saturation
+            </li>
+            <li>
+              'saturation-weighted angular dispersion': Angular dispersion
+              weighted by saturation
+            </li>
+            <li>'vector-based mean hue': Mean hue.</li>
+            <li>'angular dispersion': Mean angular dispersion of hue</li>
+            <li>
+              'colorfulness': Earth Mover’s Distance between the histogram of
+              the painting and the histogram having a uniform color
+              distribution,
+            </li>
+            <li>'black': Out of 11 basic colors, how many pixels are black</li>
+            <li>'blue': Out of 11 basic colors, how many pixels are blue</li>
+            <li>'brown':Out of 11 basic colors, how many pixels are brown</li>
+            <li>'green':Out of 11 basic colors, how many pixels are green</li>
+            <li>'gray':Out of 11 basic colors, how many pixels are gray</li>
+            <li>'orange':Out of 11 basic colors, how many pixels are orange</li>
+            <li>'pink':Out of 11 basic colors, how many pixels are pink</li>
+            <li>'purple':Out of 11 basic colors, how many pixels are purple</li>
+            <li>'red':Out of 11 basic colors, how many pixels are red</li>
+            <li>'white':Out of 11 basic colors, how many pixels are white</li>
+            <li>'yellow':Out of 11 basic colors, how many pixels are yellow</li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><b>Category: 'texture' (see [3])</b></p>
+            <li>'coarseness': coarseness from Tamura texture features</li>
+            <li>'contrast': contrast from Tamura texture features</li>
+            <li>
+              'directionality': directionality from Tamura texture features
+            </li>
+            <li>
+              'wavelet(level 1) hue': wavelet feature from level 1 of a
+              three-level wavelet transform on the Hue channel.
+            </li>
+            <li>
+              'wavelet(level 1) saturation': wavelet feature from level 1 of a
+              three-level wavelet transform on the Saturation channel.
+            </li>
+            <li>
+              'wavelet(level 1) brightness': wavelet feature from level 1 of a
+              three-level wavelet transform on the Brightness channel.
+            </li>
+            <li>
+              'wavelet(level 2) hue': wavelet feature from level 2 of a
+              three-level wavelet transform on the Hue channel.
+            </li>
+            <li>
+              'wavelet(level 2) saturation': wavelet feature from level 2 of a
+              three-level wavelet transform on the Saturation channel.
+            </li>
+            <li>
+              'wavelet(level 2) brightness': wavelet feature from level 2 of a
+              three-level wavelet transform on the Brightness channel.
+            </li>
+            <li>
+              'wavelet(level 3) hue': wavelet feature from level 3 of a
+              three-level wavelet transform on the Hue channel.
+            </li>
+            <li>
+              'wavelet(level 3) saturation': wavelet feature from level 3 of a
+              three-level wavelet transform on the Saturation channel.
+            </li>
+            <li>
+              'wavelet(level 3) brightness': wavelet feature from level 3 of a
+              three-level wavelet transform on the Brightness channel.
+            </li>
+            <li>
+              'wavelet(level 1)': The sum over level 1 Hue, Saturation and
+              Brightness features
+            </li>
+            <li>
+              'wavelet(level 2)': The sum over level 2 Hue, Saturation and
+              Brightness features
+            </li>
+            <li>
+              'wavelet(level 3)': The sum over level 3 Hue, Saturation and
+              Brightness features
+            </li>
+            <li>
+              'GLCM contrast (hue)': a measure of the hue contrast between a
+              pixel and its neighbor over the whole image
+            </li>
+            <li>
+              'GLCM contrast (saturation)': a measure of the saturation contrast
+              between a pixel and its neighbor over the whole image
+            </li>
+            <li>
+              'GLCM contrast (brightness)': a measure of the brightness contrast
+              between a pixel and its neighbor over the whole image
+            </li>
+            <li>
+              'GLCM correlation (hue)': statistical measure of how correlated a
+              pixel's hue is to its neighbor's over the whole image. Range = [-1
+              1]. Correlation is 1 or -1 for a perfectly positively or
+              negatively correlated image. Correlation is NaN for a constant
+              image.
+            </li>
+            <li>
+              'GLCM correlation (saturation)': statistical measure of how
+              correlated a pixel's saturation is to its neighbor's over the
+              whole image.
+            </li>
+            <li>
+              'GLCM correlation (brightness)': statistical measure of how
+              correlated a pixel's brightness is to its neighbor's over the
+              whole image.
+            </li>
+            <li>
+              'GLCM energy (hue)': summation of squared elements in the hue
+              GLCM. Range = [0 1]. Energy is 1 for a constant image.
+            </li>
+            <li>
+              'GLCM energy (saturation)': summation of squared elements in the
+              saturation GLCM. Range = [0 1]. Energy is 1 for a constant image.
+            </li>
+            <li>
+              'GLCM energy (brightness)': summation of squared elements in the
+              brightness GLCM. Range = [0 1]. Energy is 1 for a constant image.
+            </li>
+            <li>
+              'GLCM homogeneity (hue)': closeness of the distribution of
+              elements in the hue GLCM to the hue GLCM diagonal.
+            </li>
+            <li>
+              'GLCM homogeneity (saturation)': closeness of the distribution of
+              elements in the saturation GLCM to the hue GLCM diagonal.
+            </li>
+            <li>
+              'GLCM homogeneity (brightness)': closeness of the distribution of
+              elements in the brightness GLCM to the hue GLCM diagonal.
+            </li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><b>Category: 'lines' (see [3])</b></p>
+            <li>
+              'static absolute line slopes': Average static line slope. Lines
+              are extracted based on Hough Transform, static lines have slope
+              less than 15 degrees.
+            </li>
+            <li>
+              'static relative line slopes': Average static line slope relative
+              to the closest axis.
+            </li>
+            <li>'length of static lines': Average length of static lines.</li>
+            <li>
+              'dynamic absolute line slopes': Average dynamic line slope,
+              dynamic lines have slope larger than 15 degrees.
+            </li>
+            <li>
+              'dynamic relative line slopes': Average dynamic line slope
+              relative to the closest axis.
+            </li>
+            <li>'length of dynamic lines': Average length of dynamic lines.</li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><b>Category: 'rule of third' (see [3])</b></p>
+            <li>
+              'mean hue of inner rectangle': mean hue of the inner rectangle,
+              where painting is divided into 9 equal parts.
+            </li>
+            <li>
+              'mean saturation of inner rectangle': mean saturation of the inner
+              rectangle, where painting is divided into 9 equal parts.
+            </li>
+            <li>
+              'mean brightness of inner rectangle':mean brightness of the inner
+              rectangle, where painting is divided into 9 equal parts.
+            </li>
+            <li>
+              'ratio of wavelet coef of inner rectgl vs. image. Hue': ratio of
+              wavelet coefficients of inner rectangle vs. whole image, for the
+              hue channel
+            </li>
+            <li>
+              'ratio of wavelet coef of inner rectgl vs. image. Saturation':
+              ratio of wavelet coefficients of inner rectangle vs. whole image,
+              for the saturation channel
+            </li>
+            <li>
+              'ratio of wavelet coef of inner rectgl vs. image. Brightness':
+              ratio of wavelet coefficients of inner rectangle vs. whole image,
+              for the brightness channel
+            </li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><b>Category: 'faces and skin' (see [3])</b></p>
+            <li>
+              'number of frontal faces': Number of faces detected in the image
+            </li>
+            <li>
+              'relative size of the biggest face': size of the biggest face with
+              respect to the image
+            </li>
+            <li>'number of skin pixels':the number of pixels in skin color</li>
+            <li>
+              'amount of skin wrt the size of faces': the proportion of the
+              “skin area” to the size of the detected face
+            </li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><b>Category: 'bilateral symmetry' (see [9])</b></p>
+            <li>
+              'bilateral symmetry number': Number of symmetrical feature points
+              involved in the maximum bilateral symmetry line,
+            </li>
+            <li>
+              'bilateral symmetry radius': Radius of the maximum bilateral
+              symmetry line (length of the norm in the Hough coordinate system),
+            </li>
+            <li>
+              'bilateral symmetry angle': Angle of the maximum bilateral
+              symmetry line in the Hough coordinate system,
+            </li>
+            <li>
+              'bilateral symmetry strength': Normalized score of the maximum
+              symmetry line in the maximum symmetry line voting precedure,
+            </li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><b>Category: 'rotational symmetry' (see [9])</b></p>
+            <li>
+              'rotational symmetry radius 1': Radius of the maximum rotational
+              symmetry
+            </li>
+            <li>
+              rotational symmetry X coord 1': X coordinate of the maximum
+              rotational symmetry
+            </li>
+            <li>
+              'rotational symmetry Y coord 1': Y coordinate of the maximum
+              rotational symmetry
+            </li>
+            <li>
+              'rotational symmetry radius 2': Radius of the second maximum
+              rotational symmetry
+            </li>
+            <li>
+              rotational symmetry X coord 2': X coordinate of the second maximum
+              rotational symmetry
+            </li>
+            <li>
+              'rotational symmetry Y coord 2': Y coordinate of the second
+              maximum rotational symmetry
+            </li>
 
-    <table
-      align="center"
-      width="850px"
-      style="font-size: 15px; overflow: scroll"
-      height="400px"
-    >
-      <tr>
-        <td>
-          <p><b>Category: 'saturation and brightness' (see [3])</b></p>
-          <li>
-            'mean saturation': mean saturation of the painting in HSY color
-            space
-          </li>
-          <li>
-            'mean brightness': mean brightness of the painting in HSY color
-            space
-          </li>
-          <li>'pleasure': 0.69 Brightness +0.22 Saturation</li>
-          <li>'arousal': −0.31 Brightness +0.60 Saturation</li>
-          <li>'dominance': 0.76 Brightness +0.32 Saturation</li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><b>Category: 'hue' (see [3])</b></p>
-          <li>
-            'saturation-weighted vector-based mean hue': Mean hue weighted by
-            saturation
-          </li>
-          <li>
-            'saturation-weighted angular dispersion': Angular dispersion
-            weighted by saturation
-          </li>
-          <li>'vector-based mean hue': Mean hue.</li>
-          <li>'angular dispersion': Mean angular dispersion of hue</li>
-          <li>
-            'colorfulness': Earth Mover’s Distance between the histogram of the
-            painting and the histogram having a uniform color distribution,
-          </li>
-          <li>'black': Out of 11 basic colors, how many pixels are black</li>
-          <li>'blue': Out of 11 basic colors, how many pixels are blue</li>
-          <li>'brown':Out of 11 basic colors, how many pixels are brown</li>
-          <li>'green':Out of 11 basic colors, how many pixels are green</li>
-          <li>'gray':Out of 11 basic colors, how many pixels are gray</li>
-          <li>'orange':Out of 11 basic colors, how many pixels are orange</li>
-          <li>'pink':Out of 11 basic colors, how many pixels are pink</li>
-          <li>'purple':Out of 11 basic colors, how many pixels are purple</li>
-          <li>'red':Out of 11 basic colors, how many pixels are red</li>
-          <li>'white':Out of 11 basic colors, how many pixels are white</li>
-          <li>'yellow':Out of 11 basic colors, how many pixels are yellow</li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><b>Category: 'texture' (see [3])</b></p>
-          <li>'coarseness': coarseness from Tamura texture features</li>
-          <li>'contrast': contrast from Tamura texture features</li>
-          <li>'directionality': directionality from Tamura texture features</li>
-          <li>
-            'wavelet(level 1) hue': wavelet feature from level 1 of a
-            three-level wavelet transform on the Hue channel.
-          </li>
-          <li>
-            'wavelet(level 1) saturation': wavelet feature from level 1 of a
-            three-level wavelet transform on the Saturation channel.
-          </li>
-          <li>
-            'wavelet(level 1) brightness': wavelet feature from level 1 of a
-            three-level wavelet transform on the Brightness channel.
-          </li>
-          <li>
-            'wavelet(level 2) hue': wavelet feature from level 2 of a
-            three-level wavelet transform on the Hue channel.
-          </li>
-          <li>
-            'wavelet(level 2) saturation': wavelet feature from level 2 of a
-            three-level wavelet transform on the Saturation channel.
-          </li>
-          <li>
-            'wavelet(level 2) brightness': wavelet feature from level 2 of a
-            three-level wavelet transform on the Brightness channel.
-          </li>
-          <li>
-            'wavelet(level 3) hue': wavelet feature from level 3 of a
-            three-level wavelet transform on the Hue channel.
-          </li>
-          <li>
-            'wavelet(level 3) saturation': wavelet feature from level 3 of a
-            three-level wavelet transform on the Saturation channel.
-          </li>
-          <li>
-            'wavelet(level 3) brightness': wavelet feature from level 3 of a
-            three-level wavelet transform on the Brightness channel.
-          </li>
-          <li>
-            'wavelet(level 1)': The sum over level 1 Hue, Saturation and
-            Brightness features
-          </li>
-          <li>
-            'wavelet(level 2)': The sum over level 2 Hue, Saturation and
-            Brightness features
-          </li>
-          <li>
-            'wavelet(level 3)': The sum over level 3 Hue, Saturation and
-            Brightness features
-          </li>
-          <li>
-            'GLCM contrast (hue)': a measure of the hue contrast between a pixel
-            and its neighbor over the whole image
-          </li>
-          <li>
-            'GLCM contrast (saturation)': a measure of the saturation contrast
-            between a pixel and its neighbor over the whole image
-          </li>
-          <li>
-            'GLCM contrast (brightness)': a measure of the brightness contrast
-            between a pixel and its neighbor over the whole image
-          </li>
-          <li>
-            'GLCM correlation (hue)': statistical measure of how correlated a
-            pixel's hue is to its neighbor's over the whole image. Range = [-1
-            1]. Correlation is 1 or -1 for a perfectly positively or negatively
-            correlated image. Correlation is NaN for a constant image.
-          </li>
-          <li>
-            'GLCM correlation (saturation)': statistical measure of how
-            correlated a pixel's saturation is to its neighbor's over the whole
-            image.
-          </li>
-          <li>
-            'GLCM correlation (brightness)': statistical measure of how
-            correlated a pixel's brightness is to its neighbor's over the whole
-            image.
-          </li>
-          <li>
-            'GLCM energy (hue)': summation of squared elements in the hue GLCM.
-            Range = [0 1]. Energy is 1 for a constant image.
-          </li>
-          <li>
-            'GLCM energy (saturation)': summation of squared elements in the
-            saturation GLCM. Range = [0 1]. Energy is 1 for a constant image.
-          </li>
-          <li>
-            'GLCM energy (brightness)': summation of squared elements in the
-            brightness GLCM. Range = [0 1]. Energy is 1 for a constant image.
-          </li>
-          <li>
-            'GLCM homogeneity (hue)': closeness of the distribution of elements
-            in the hue GLCM to the hue GLCM diagonal.
-          </li>
-          <li>
-            'GLCM homogeneity (saturation)': closeness of the distribution of
-            elements in the saturation GLCM to the hue GLCM diagonal.
-          </li>
-          <li>
-            'GLCM homogeneity (brightness)': closeness of the distribution of
-            elements in the brightness GLCM to the hue GLCM diagonal.
-          </li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><b>Category: 'lines' (see [3])</b></p>
-          <li>
-            'static absolute line slopes': Average static line slope. Lines are
-            extracted based on Hough Transform, static lines have slope less
-            than 15 degrees.
-          </li>
-          <li>
-            'static relative line slopes': Average static line slope relative to
-            the closest axis.
-          </li>
-          <li>'length of static lines': Average length of static lines.</li>
-          <li>
-            'dynamic absolute line slopes': Average dynamic line slope, dynamic
-            lines have slope larger than 15 degrees.
-          </li>
-          <li>
-            'dynamic relative line slopes': Average dynamic line slope relative
-            to the closest axis.
-          </li>
-          <li>'length of dynamic lines': Average length of dynamic lines.</li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><b>Category: 'rule of third' (see [3])</b></p>
-          <li>
-            'mean hue of inner rectangle': mean hue of the inner rectangle,
-            where painting is divided into 9 equal parts.
-          </li>
-          <li>
-            'mean saturation of inner rectangle': mean saturation of the inner
-            rectangle, where painting is divided into 9 equal parts.
-          </li>
-          <li>
-            'mean brightness of inner rectangle':mean brightness of the inner
-            rectangle, where painting is divided into 9 equal parts.
-          </li>
-          <li>
-            'ratio of wavelet coef of inner rectgl vs. image. Hue': ratio of
-            wavelet coefficients of inner rectangle vs. whole image, for the hue
-            channel
-          </li>
-          <li>
-            'ratio of wavelet coef of inner rectgl vs. image. Saturation': ratio
-            of wavelet coefficients of inner rectangle vs. whole image, for the
-            saturation channel
-          </li>
-          <li>
-            'ratio of wavelet coef of inner rectgl vs. image. Brightness': ratio
-            of wavelet coefficients of inner rectangle vs. whole image, for the
-            brightness channel
-          </li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><b>Category: 'faces and skin' (see [3])</b></p>
-          <li>
-            'number of frontal faces': Number of faces detected in the image
-          </li>
-          <li>
-            'relative size of the biggest face': size of the biggest face with
-            respect to the image
-          </li>
-          <li>'number of skin pixels':the number of pixels in skin color</li>
-          <li>
-            'amount of skin wrt the size of faces': the proportion of the “skin
-            area” to the size of the detected face
-          </li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><b>Category: 'bilateral symmetry' (see [9])</b></p>
-          <li>
-            'bilateral symmetry number': Number of symmetrical feature points
-            involved in the maximum bilateral symmetry line,
-          </li>
-          <li>
-            'bilateral symmetry radius': Radius of the maximum bilateral
-            symmetry line (length of the norm in the Hough coordinate system),
-          </li>
-          <li>
-            'bilateral symmetry angle': Angle of the maximum bilateral symmetry
-            line in the Hough coordinate system,
-          </li>
-          <li>
-            'bilateral symmetry strength': Normalized score of the maximum
-            symmetry line in the maximum symmetry line voting precedure,
-          </li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><b>Category: 'rotational symmetry' (see [9])</b></p>
-          <li>
-            'rotational symmetry radius 1': Radius of the maximum rotational
-            symmetry
-          </li>
-          <li>
-            rotational symmetry X coord 1': X coordinate of the maximum
-            rotational symmetry
-          </li>
-          <li>
-            'rotational symmetry Y coord 1': Y coordinate of the maximum
-            rotational symmetry
-          </li>
-          <li>
-            'rotational symmetry radius 2': Radius of the second maximum
-            rotational symmetry
-          </li>
-          <li>
-            rotational symmetry X coord 2': X coordinate of the second maximum
-            rotational symmetry
-          </li>
-          <li>
-            'rotational symmetry Y coord 2': Y coordinate of the second maximum
-            rotational symmetry
-          </li>
+            <li>
+              'rotational symmetry radius 3': Radius of the third maximum
+              rotational symmetry
+            </li>
+            <li>
+              rotational symmetry X coord 3': X coordinate of the third maximum
+              rotational symmetry
+            </li>
+            <li>
+              'rotational symmetry Y coord 3': Y coordinate of the third maximum
+              rotational symmetry
+            </li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><b>Category: 'radial symmetry' (see [9])</b></p>
 
-          <li>
-            'rotational symmetry radius 3': Radius of the third maximum
-            rotational symmetry
-          </li>
-          <li>
-            rotational symmetry X coord 3': X coordinate of the third maximum
-            rotational symmetry
-          </li>
-          <li>
-            'rotational symmetry Y coord 3': Y coordinate of the third maximum
-            rotational symmetry
-          </li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><b>Category: 'radial symmetry' (see [9])</b></p>
-
-          <li>
-            'radial symmetry map distribution 0' to 'radial symmetry map
-            distribution 35': Each of the 36 features is one component in the
-            distribution of symmetry map after radial symmetry transformation.
-          </li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><b>Category: 'genre'</b></p>
-          <li>'genre_is_missing': Genre of the painting is missing</li>
-          <li>
-            'genre_is_portrait': Genre of the painting is portrait, according to
-            WikiArt
-          </li>
-          <li>
-            'genre_is_landscape': Genre of the painting is landscape, according
-            to WikiArt
-          </li>
-          <li>
-            'genre_is_still_life': Genre of the painting is still life,
-            according to WikiArt
-          </li>
-          <li>
-            'genre_is_religious_painting': Genre of the painting is religious
-            painting, according to WikiArt
-          </li>
-          <li>
-            'genre_is_sketch_and_study': Genre of the painting is sketch and
-            study, according to WikiArt
-          </li>
-          <li>
-            'genre_is_genre_painting': Genre of the painting is genre painting,
-            according to WikiArt
-          </li>
-          <li>
-            'genre_is_illustration': Genre of the painting is illustration,
-            according to WikiArt
-          </li>
-          <li>
-            'genre_is_cityscape': Genre of the painting is cityscape, according
-            to WikiArt
-          </li>
-          <li>
-            'genre_is_nude_painting': Genre of the painting is nude painting,
-            according to WikiArt
-          </li>
-          <li>
-            'genre_is_abstract_painting': Genre of the painting is abstract
-            painting, according to WikiArt
-          </li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p><b>Category: 'artstyle'</b></p>
-          <li>
-            'artstyle_is_Post_Impressionism': Style of the painting is Post
-            Impressionism, according to WikiArt
-          </li>
-          <li>'artstyle_is_Expressionism'</li>
-          <li>'artstyle_is_Impressionism'</li>
-          <li>'artstyle_is_Northern_Renaissance'</li>
-          <li>'artstyle_is_Realism'</li>
-          <li>'artstyle_is_Romanticism'</li>
-          <li>'artstyle_is_Art_Nouveau_Modern'</li>
-          <li>'artstyle_is_Symbolism'</li>
-          <li>'artstyle_is_Baroque'</li>
-          <li>'artstyle_is_Abstract_Expressionism'</li>
-          <li>'artstyle_is_Naive_Art_Primitivism'</li>
-          <li>'artstyle_is_Rococo'</li>
-          <li>'artstyle_is_Cubism'</li>
-          <li>'artstyle_is_Naive_Art_Primitivism'</li>
-          <li>'artstyle_is_Pop_Art'</li>
-          <li>'artstyle_is_Pointillism'</li>
-          <li>'artstyle_is_Early_Renaissance'</li>
-          <li>'artstyle_is_Ukiyo_e'</li>
-          <li>'artstyle_is_Mannerism_Late_Renaissance'</li>
-          <li>'artstyle_is_High_Renaissance'</li>
-          <li>'artstyle_is_Minimalism'</li>
-          <li>'artstyle_is_Fauvism'</li>
-          <li>'artstyle_is_Action_painting'</li>
-          <li>'artstyle_is_Contemporary_Realism'</li>
-          <li>'artstyle_is_Synthetic_Cubism'</li>
-          <li>'artstyle_is_New_Realism'</li>
-          <li>'artstyle_is_Analytical_Cubism'</li>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <p>
-            <b>Category: 'score and coordinates of bounding boxes of person'</b>
-          </p>
-          <li>'bbox PCA 0' to 'bbox PCA 24':</li>
-          The raw bbox feature contains bounding boxes of person. It's a 50D
-          vector with the first 10D consisting the scores of the top 10 bounding
-          boxes, and the 40D consists of the corresponding coordinates. We
-          finutuned Faster R-CNN on the PeopleArt dataset to extract the
-          bounding boxes. The finetuned model can be downloaded from
-          <a
-            href="https://drive.google.com/file/d/1BbJLMOrTjbPQOXL_QNM2L2pJONaaDBfG/view?usp=sharing"
-            >here</a
-          >
-          We use PCA to reduce the 50D vector to 25D, while perserving 99%
-          variance.
-        </td>
-      </tr>
-      <tr>
-        <td></td>
-      </tr>
-    </table>
-
+            <li>
+              'radial symmetry map distribution 0' to 'radial symmetry map
+              distribution 35': Each of the 36 features is one component in the
+              distribution of symmetry map after radial symmetry transformation.
+            </li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><b>Category: 'genre'</b></p>
+            <li>'genre_is_missing': Genre of the painting is missing</li>
+            <li>
+              'genre_is_portrait': Genre of the painting is portrait, according
+              to WikiArt
+            </li>
+            <li>
+              'genre_is_landscape': Genre of the painting is landscape,
+              according to WikiArt
+            </li>
+            <li>
+              'genre_is_still_life': Genre of the painting is still life,
+              according to WikiArt
+            </li>
+            <li>
+              'genre_is_religious_painting': Genre of the painting is religious
+              painting, according to WikiArt
+            </li>
+            <li>
+              'genre_is_sketch_and_study': Genre of the painting is sketch and
+              study, according to WikiArt
+            </li>
+            <li>
+              'genre_is_genre_painting': Genre of the painting is genre
+              painting, according to WikiArt
+            </li>
+            <li>
+              'genre_is_illustration': Genre of the painting is illustration,
+              according to WikiArt
+            </li>
+            <li>
+              'genre_is_cityscape': Genre of the painting is cityscape,
+              according to WikiArt
+            </li>
+            <li>
+              'genre_is_nude_painting': Genre of the painting is nude painting,
+              according to WikiArt
+            </li>
+            <li>
+              'genre_is_abstract_painting': Genre of the painting is abstract
+              painting, according to WikiArt
+            </li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p><b>Category: 'artstyle'</b></p>
+            <li>
+              'artstyle_is_Post_Impressionism': Style of the painting is Post
+              Impressionism, according to WikiArt
+            </li>
+            <li>'artstyle_is_Expressionism'</li>
+            <li>'artstyle_is_Impressionism'</li>
+            <li>'artstyle_is_Northern_Renaissance'</li>
+            <li>'artstyle_is_Realism'</li>
+            <li>'artstyle_is_Romanticism'</li>
+            <li>'artstyle_is_Art_Nouveau_Modern'</li>
+            <li>'artstyle_is_Symbolism'</li>
+            <li>'artstyle_is_Baroque'</li>
+            <li>'artstyle_is_Abstract_Expressionism'</li>
+            <li>'artstyle_is_Naive_Art_Primitivism'</li>
+            <li>'artstyle_is_Rococo'</li>
+            <li>'artstyle_is_Cubism'</li>
+            <li>'artstyle_is_Naive_Art_Primitivism'</li>
+            <li>'artstyle_is_Pop_Art'</li>
+            <li>'artstyle_is_Pointillism'</li>
+            <li>'artstyle_is_Early_Renaissance'</li>
+            <li>'artstyle_is_Ukiyo_e'</li>
+            <li>'artstyle_is_Mannerism_Late_Renaissance'</li>
+            <li>'artstyle_is_High_Renaissance'</li>
+            <li>'artstyle_is_Minimalism'</li>
+            <li>'artstyle_is_Fauvism'</li>
+            <li>'artstyle_is_Action_painting'</li>
+            <li>'artstyle_is_Contemporary_Realism'</li>
+            <li>'artstyle_is_Synthetic_Cubism'</li>
+            <li>'artstyle_is_New_Realism'</li>
+            <li>'artstyle_is_Analytical_Cubism'</li>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>
+              <b
+                >Category: 'score and coordinates of bounding boxes of
+                person'</b
+              >
+            </p>
+            <li>'bbox PCA 0' to 'bbox PCA 24':</li>
+            The raw bbox feature contains bounding boxes of person. It's a 50D
+            vector with the first 10D consisting the scores of the top 10
+            bounding boxes, and the 40D consists of the corresponding
+            coordinates. We finutuned Faster R-CNN on the PeopleArt dataset to
+            extract the bounding boxes. The finetuned model can be downloaded
+            from
+            <a
+              href="https://drive.google.com/file/d/1BbJLMOrTjbPQOXL_QNM2L2pJONaaDBfG/view?usp=sharing"
+              >here</a
+            >
+            We use PCA to reduce the 50D vector to 25D, while perserving 99%
+            variance.
+          </td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+      </table>
+    </div>
     <hr />
 
     <table align="center" width="700px">
@@ -1175,7 +1228,7 @@
           </p>
           <p>
             [3]Machajdik, J., & Hanbury, A. (2010, October). Affective image
-            classification using features inspired by psychology and art theory.
+            classification using features inspired by psychology and Art Theory.
             In Proceedings of the 18th ACM international conference on
             Multimedia (pp. 83-92).
           </p>
@@ -1241,12 +1294,22 @@
             31st international conference on neural information processing
             systems (pp. 4768-4777).
           </p>
+          <p>
+            [15] Westlake, N., Cai, H., & Hall, P. (2016). Detecting People in
+            Artwork with CNNs. In European Conference on Computer Vision (pp.
+            825–841).
+          </p>
+          <p>
+            [16] Lu, X., Lin, Z., Jin, H., Yang, J., & Wang, J. Z. (2014,
+            November). Rapid: Rating pictorial aesthetics using deep learning.
+            In Proceedings of the 22nd ACM international conference on
+            Multimedia (pp. 457-466).
+          </p>
         </td>
       </tr>
     </table>
 
     <hr />
-
 
     <br />
 
