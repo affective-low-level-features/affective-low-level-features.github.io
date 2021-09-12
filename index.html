@@ -157,7 +157,7 @@
     <center>
       <span style="font-size: 36px"
         >What makes a painting emotional? Interpreting the emotional character
-        of paintings via deep-learning and Art Theory
+        of paintings via Deep Learning and Art Theory
       </span>
       <table align="center" width="600px">
         <table align="center" width="600px">
@@ -232,27 +232,27 @@
         <td>
           <p>
             <b>Paintings</b> evoke subjective <b>emotions</b>. An emotion may be
-            evoked by the <b>semantic implication</b> of the illustrated subject
+            evoked by the <b>semantic</b> implication of the illustrated subject
             matter or the subconscious impact of
-            <b>nonfigurative elements</b> such as shapes and colors in our
-            visual system. For example, a painting of sharks may evoke fear, yet
-            if it were drawn in bright and lively <b>colors</b> one might feel
-            excited by it. Similarly, a portrait with neural expression could be
-            interpreted as angry if hard <b>lines</b> and sharp
-            <b>angles</b> where emphasized. It is therefore interesting from an
-            Art Theory perspective to understand what <b>features</b> of a
-            painting are more powerful at affecting the emotional responses in
-            humans.
+            <b>nonfigurative elements</b> to the visual system. For example, a
+            painting of sharks may evoke fear, yet if it were drawn in bright
+            and lively <b>colors</b> one might feel excited by it. Similarly, a
+            portrait with neural expression could be interpreted as angry if
+            hard <b>lines</b> and sharp <b>angles</b> where emphasized. It is
+            therefore interesting from an Art Theory perspective to understand
+            what <b>features</b> of a painting are more powerful at affecting
+            the emotional responses in humans.
           </p>
           <p>
             In this work, we find
-            <b>interpretation for human's emotional response to paintings</b>
+            <b>interpretations for emotional response to paintings</b>
             through (1) analysing the importance of
-            <b>179 handcrafted features</b>. Specifically, we use Art Theory
-            andPsychology features [3, 9], low-level classical vision features
-            [3], bounding boxes of people [15],genre [11], and art style [16];
-            (2) interpreting the knowledge of a <b>deep learning</b> based
-            emotion classifier.
+            <b>179 handcrafted features</b> in predicting human's dominant
+            emotional response to paintings. Specifically, we use Art Theory and
+            Psychology features [3, 9], low-level classical vision features [3],
+            bounding boxes of people [15],genre [11], and art style [16]; (2)
+            interpreting the knowledge encoded in <b>deep learning</b> based
+            features.
           </p>
           <p>
             Our findings suggest that <b>color</b> (hue, saturation, brightness)
@@ -282,7 +282,8 @@
               interpreting the emotion of paintings. Top 3 most important
               individual features are GLCM saturation contrast (local
               <b>saturation</b> contrast), colorfulness (diversity of
-              <b>hue</b>), and black (level of <b>intensity</b>)
+              saturation, hue and intensity), and number of black pixels (level
+              of intensity).
             </li>
             <br />
             <li>
@@ -556,8 +557,8 @@
             value. As can be seen, paintings with higher GLCM contrast
             (saturation) values tend to contain more disjoint small blocks of
             colors and more distinct edges separating colors of different
-            saturation. Both intuitively and empirically, we observe high GLCM
-            contrast (saturation) values to correlate with negative effect on
+            saturation. As shown in <b>Figure 4</b>,we observe high GLCM
+            contrast (saturation) values to correlate with positive effect on
             emotion.
           </p>
         </td>
@@ -579,6 +580,24 @@
           (saturation) value.
         </td>
       </tr>
+      <tr align="center">
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/glcm correlation.png"
+          />
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          Figure 4. Ground truth emotion label and normalized GLCM contrast
+          (saturation) value for 4000 points randomly sampled from the balanced
+          binary Artemis dataset. We observe a positive correlation between GLCM
+          contrast (saturation) value and positive emotion.
+        </td>
+      </tr>
 
       <tr>
         <td>
@@ -587,16 +606,14 @@
             The second most important feature is <b>colorfulness</b>.
             Colorfulness measures the Earth Mover’s Distance between the
             histogram of the painting and the histogram having a uniform color
-            distribution. Empirically,
-            <b
-              >lower colorfulness value induces positive net emotional
-              effect.</b
-            >
-            Figure 4 shows some paintings with their
-            <b>normalized</b> colorfulness value. As can be seen in Figure 4,
-            paintings with higher colorfulness values tend to be dominanted by a
-            single color, and paintings with lower colorfulness values tend use
-            all colors uniformly.
+            distribution. Images are converted into the CIE-Lab color space and
+            3D pixel representation are clustered into bins in the histogram
+            [17]. Paintings with <b>high</b> colorfulness values tend to be
+            dominanted by a <b>single color</b>, and paintings with
+            <b>low</b> colorfulness values tend use <b>all colors</b> uniformly.
+            Figure 5 shows some paintings with their
+            <b>normalized</b> colorfulness value. As can be seen in Figure 6,
+            colorfulness is <b>negatively correlated with positive emotion</b>.
           </p>
         </td>
       </tr>
@@ -612,9 +629,27 @@
       </tr>
       <tr align="center">
         <td>
-          Figure 4. Paintings from the ArtEmis dataset with their corresponding
+          Figure 5. Paintings from the ArtEmis dataset with their corresponding
           ground truth majority emotion, and their normalized colorfulness
           value.
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/colorfulness correlation.png"
+          />
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          Figure 6. Ground truth emotion label and normalized colorfulness value
+          for 4000 points randomly sampled from the balanced binary Artemis
+          dataset. We observe a negative correlation between colorfulness and
+          positive emotion.
         </td>
       </tr>
     </table>
@@ -625,10 +660,11 @@
           The third most important feature is <b>Black</b>, which represents the
           number of black pixels in the paintings. The color spectrum is divided
           into 11 basic colors, and we count the number of pixels in the black
-          category. Figure 5 shows some examples with their
+          category. Figure 7 shows some examples with their
           <b>normalized</b> black value. As can be observed, the darker a
-          painting is, the higher is its black value. Empirically, number of
-          black pixels correlate positively with <b>negative emotion</b>.
+          painting is, the higher is its black value. As shown in Figure 8,
+          number of black pixels correlate positively with
+          <b>negative emotion</b>.
         </td>
       </tr>
       <tr align="center">
@@ -639,9 +675,26 @@
       </tr>
       <tr align="center">
         <td>
-          Figure 5. Paintings from the ArtEmis dataset with their corresponding
+          Figure 7. Paintings from the ArtEmis dataset with their corresponding
           ground truth majority emotion, and their normalized number of black
           pixels value.
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/black correlation.png"
+          />
+        </td>
+      </tr>
+      <tr align="center">
+        <td>
+          Figure 8. Ground truth emotion label and normalized Black value for
+          4000 points randomly sampled from the balanced binary Artemis dataset.
+          We observe a negative correlation between Black and positive emotion.
         </td>
       </tr>
     </table>
@@ -1302,6 +1355,11 @@
             November). Rapid: Rating pictorial aesthetics using deep learning.
             In Proceedings of the 22nd ACM international conference on
             Multimedia (pp. 457-466).
+          </p>
+          <p>
+            [17] Rubner, Y., Tomasi, C., & Guibas, L. J. (2000). The earth
+            mover's distance as a metric for image retrieval. International
+            journal of computer vision, 40(2), 99-121.
           </p>
         </td>
       </tr>
