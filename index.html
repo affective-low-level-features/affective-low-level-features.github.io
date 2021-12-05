@@ -156,9 +156,8 @@
     <br />
     <center>
       <span style="font-size: 36px"
-        >What Makes a Painting Emotional? Using Deep Learning and Art Theory to Interpret the Emotional Character of Paintings
-
-
+        >What Makes a Painting Emotional? Using Deep Learning and Art Theory to
+        Interpret the Emotional Character of Paintings
       </span>
       <table align="center" width="600px">
         <table align="center" width="600px">
@@ -167,6 +166,13 @@
               <center>
                 <span style="font-size: 24px"
                   >WenXin Dong (wxd@stanford.edu)</span
+                >
+              </center>
+            </td>
+            <td align="center" width="100px">
+              <center>
+                <span style="font-size: 24px"
+                  >Leonidas Guibas (guibas@cs.stanford.edu)</span
                 >
               </center>
             </td>
@@ -209,15 +215,19 @@
               <img
                 class="round"
                 style="width: 800px"
-                src="./resources/teaser.png"
+                src="./resources/figure1.png"
               />
             </center>
           </td>
         </tr>
         <tr>
           <td align="center">
-            Figure 1. Example paintings from the ArtEmis dataset with ground
-            truth emotion distribution. Majority emotion boldened.
+            <b>Figure 1. Examples from the ArtEmis dataset.</b>For each
+            painting, the majority emotion from the ground truth emotion is
+            labeled on the top, and all other emotions appearing in the ground
+            truth distribution is labeled on the bottom. For the painting in the
+            left, one example utterance for each corresponding emotion label is
+            shown.
           </td>
         </tr>
       </table>
@@ -400,19 +410,33 @@
       <tr>
         <td>
           <p>
+            On a high level, we first obtain two sets of features: handcrafted
+            features and deep-learning based features. We then find the feature
+            importance for the handcrafted features. Finally, we find the
+            correlation between the handcrafted features and deep-learning based
+            features.
+          </p>
+          <p>
             To obtain deep-learning based features, we trained a ResNet-34 model
             from scratch, without pretrained weights. We used early stopping,
             128 as batch size, 0.0005 as learning rate, and 0.3 as dropout. We
-            extracted the output of the second to last linear layer, before the Relu
-            nonlinearity, as our deep feature. The training task was emotion distribution prediction using a KL divergence loss. The training set was the
-            full 80K artemis dataset.
+            extracted the output of the second to last linear layer, before the
+            Relu nonlinearity, as our deep feature. The training task was
+            emotion distribution prediction using a KL divergence loss. The
+            training set was the full 80K artemis dataset.
           </p>
           <p>
             <b>
-              To rank handcrafted features by their relative importance, we
-              average over six individual rankings for reliability and
-              stability. We explain the methods for obtaining these individual
-              rankings below.
+              To calculate feature importance for the handcrafted features, we
+              use two methods. The first method is to train a single-feature
+              classifier using each feature, and use the corresponding test
+              accuracy as feature importance. The second method is to use the
+              Shapley value of each feature as its feature importance. The
+              limitation of the first method is that single-feature models
+              ignores possible feature interactions. To rank handcrafted features
+              by their relative importance, we average over six individual
+              rankings for reliability and stability. We explain the methods for
+              obtaining these individual rankings below.
             </b>
           </p>
           <p><b>1. SHAP values</b></p>
@@ -435,9 +459,7 @@
             SHAP assumes <b>feature independence</b> as correlations among
             features might cause features which did not contribute to the
             prediction to share the credits of those features that did
-            contribute to the prediction. This is one of the reasons why we use
-            the second method, SVM on single features, to cross-validate the
-            predictive power of a feature.
+            contribute to the prediction.
           </p>
           <p><b> 2. Support Vector Machines</b></p>
           <p>
@@ -445,7 +467,7 @@
             features according to the prediction accuracy of the SVM. We found
             little difference in accuracy by using a non-linear kernal. Since
             every feature is 1 dimensional, we train the same number of linear
-            SVMs as the number of handcrafted features. We repeat this precedure
+            SVMs as the number of handcrafted features. We repeat this procedure
             with multiclass classification to obtain 2 separate rankings.
           </p>
           <p><b>3. Decision Tree Classifiers</b></p>
@@ -523,7 +545,7 @@
       <tr>
         <td>
           <p>
-            We carry out the precedure described in the Methods section to
+            We carry out the procedure described in the Methods section to
             obtain the 6 individual rankings and an overall ranking of the
             handcrafted features. The table below lists the top 10 features from
             each ranking. We see that the overall most important feature is GLCM
@@ -835,17 +857,7 @@
         <h1>Full list of handcrafted features</h1>
       </center>
     </table>
-    <table align="center" width="420px">
-      <center>
-        <td>
-          <img
-            class="round"
-            style="width: 420px"
-            src="./resources/word cloud.png"
-          />
-        </td>
-      </center>
-    </table>
+
     <div style="overflow-y: scroll; height: 400">
       <table
         align="center"
@@ -1101,7 +1113,7 @@
             </li>
             <li>
               'bilateral symmetry strength': Normalized score of the maximum
-              symmetry line in the maximum symmetry line voting precedure,
+              symmetry line in the maximum symmetry line voting procedure,
             </li>
           </td>
         </tr>
