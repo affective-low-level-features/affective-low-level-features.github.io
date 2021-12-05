@@ -156,8 +156,9 @@
     <br />
     <center>
       <span style="font-size: 36px"
-        >What makes a painting emotional? Interpreting the emotional character
-        of paintings via Deep Learning and Art Theory
+        >What Makes a Painting Emotional? Using Deep Learning and Art Theory to Interpret the Emotional Character of Paintings
+
+
       </span>
       <table align="center" width="600px">
         <table align="center" width="600px">
@@ -398,6 +399,14 @@
       </center>
       <tr>
         <td>
+          <p>
+            To obtain deep-learning based features, we trained a ResNet-34 model
+            from scratch, without pretrained weights. We used early stopping,
+            128 as batch size, 0.0005 as learning rate, and 0.3 as dropout. We
+            extracted the output of the second to last linear layer, before the Relu
+            nonlinearity, as our deep feature. The training task was emotion distribution prediction using a KL divergence loss. The training set was the
+            full 80K artemis dataset.
+          </p>
           <p>
             <b>
               To rank handcrafted features by their relative importance, we
@@ -725,7 +734,7 @@
           </p>
 
           <p>
-            Figure 6 displays the ranking of the feature categories. The top 3
+            Figure 9 displays the ranking of the feature categories. The top 3
             most important feature subgroups are
             <b>hue, texture, genre</b>.
           </p>
@@ -743,7 +752,7 @@
       </tr>
       <tr align="center">
         <td>
-          Figure 6. Ranking of the feature subgroups, color-coded for better
+          Figure 9. Ranking of the feature subgroups, color-coded for better
           visibility.
         </td>
       </tr>
@@ -761,9 +770,9 @@
       <tr>
         <td>
           <p>
-            <b>Figure 7</b> summarizes the correlation between handcrafted
+            <b>Figure 10</b> summarizes the correlation between handcrafted
             features and deep-learning based features. The
-            <b>first column</b> in Figure 7 shows the proportion of variance
+            <b>first column</b> in Figure 10 shows the proportion of variance
             shared between all canonical variates with significant correlation,
             which approximately informs us to what extent, the feature set with
             larger variance explains the feature set with smaller variance. As
@@ -784,7 +793,7 @@
             feature subgroup to the learned features, compared to only using
             learned features.
           </p>
-          As shown in Figure 7, the
+          As shown in Figure 10, the
           <b>strongly correlated</b> handcrafted feature subgroups introduce
           <b>no improvement</b> to the SVM classifier, as expected. Moreover,
           the high-level feature subgroups,
@@ -810,7 +819,7 @@
       </tr>
       <tr align="center">
         <td>
-          Figure 7. Column 1: Oroportion of variance shared between canonical
+          Figure 10. Column 1: Porportion of variance shared between canonical
           variates of learned features and handcrafted feature subgroups with
           significant correlation (>0.45). Column 2: Improvement in a linear SVM
           classifier accuracy if we were to concatenate the handcrafted feature
