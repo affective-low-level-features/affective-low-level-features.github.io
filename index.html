@@ -222,12 +222,11 @@
         </tr>
         <tr>
           <td align="center">
-            <b>Figure 1. Examples from the ArtEmis dataset.</b>For each
-            painting, the majority emotion from the ground truth emotion is
-            labeled on the top, and all other emotions appearing in the ground
-            truth distribution is labeled on the bottom. For the painting in the
-            left, one example utterance for each corresponding emotion label is
-            shown.
+            <b>Figure 1. Examples in the ArtEmis dataset.</b> For each painting in the ArtEmis dataset,
+            5 or more Amazon Turk workers provide reasoning for their dominant emotion.
+            The majority ground truth emotion is
+            shown above the image, and minority ground truth emotions are shown below the image.
+
           </td>
         </tr>
       </table>
@@ -386,19 +385,7 @@
             dataset has 9 emotion labels: Amusement, Awe, Excitement,
             Contentment, Anger, Disgust, Fear, Sadness, and Something else.
           </p>
-          <p>
-            For all
-            <b>multiclass emotion classification</b> of Artmis mentioned
-            hereafter, we use a balanced Artemis dataset with 8 emotions. We
-            drop the emotion class <b>Anger</b> due to its infrequency.
-          </p>
-          <p>
-            For all <b>binary emotion classification</b> of Artmis mentioned
-            hereafter, we use a balanced binary Artemis dataset. The positive
-            class encompasses Amusement, Awe, Excitement, Contentment, and
-            negative class encompasses Anger,Disgust, Fear, Sadness. Please note
-            we drop <b>Something Else</b> due to its ambigouity.
-          </p>
+
         </td>
       </tr>
     </table>
@@ -411,13 +398,17 @@
         <td>
           <p>
             On a high level, we first obtain two sets of features: handcrafted
-            features and deep-learning based features. We then find the feature
-            importance for the handcrafted features. Finally, we find the
+            features and deep-learning based features. We then compare their performance.
+            Afterward, we calculate feature
+            importance of the handcrafted features. Finally, we find the
             correlation between the handcrafted features and deep-learning based
             features.
           </p>
+          <h3>Feature Engineering</h3>
+          <div style = "margin-left:30">
+
           <p>
-            To obtain deep-learning based features, we trained a ResNet-34 model
+            To obtain <b>deep-learning based features</b>, we trained a ResNet-34 model
             from scratch, without pretrained weights. We used early stopping,
             128 as batch size, 0.0005 as learning rate, and 0.3 as dropout. We
             extracted the output of the second to last linear layer, before the
@@ -425,23 +416,64 @@
             emotion distribution prediction using a KL divergence loss. The
             training set was the full 80K artemis dataset.
           </p>
+
           <p>
-            <b>
-              To calculate feature importance for the handcrafted features, we
-              use two methods. The first method is to train a single-feature
-              classifier using each feature, and use the corresponding test
-              accuracy as feature importance. The second method is to use the
-              Shapley value of each feature as its feature importance. The
-              limitation of the first method is that single-feature models
-              ignores possible feature interactions. To rank handcrafted features
-              by their relative importance, we average over six individual
-              rankings for reliability and stability. We explain the methods for
-              obtaining these individual rankings below.
-            </b>
+            To obtain <b>handcrafted features</b>, we curated 179 features from painting metadata,
+            previous literature, and bounding boxes of people. We grouped the handcrafted features
+            into 12 groups: hue, texture, artstyle, genre, saturation and brightness, rule of third, bounding box, faces and skin, lines,
+            bilateral symmetry, rotational symmetry, and radial symmetry.
+            For more detail, please see <a href="#hand-features">the full list of handcrafted features and their meaning</a>.
           </p>
-          <p><b>1. SHAP values</b></p>
+        </div>
+          <h3>Models</h3>
+          <div style = "margin-left:30">
           <p>
-            We approximate the SHAP value of each handcrafted feature in a
+            For
+           multiclass emotion classification, we use a balanced Artemis dataset with 8 emotions. We
+            drop the emotion class Anger due to its infrequency.
+          </p>
+          <p>
+            For binary emotion classification, we use a balanced binary Artemis dataset. The positive
+            class encompasses Amusement, Awe, Excitement, Contentment, and
+            negative class encompasses Anger,Disgust, Fear, Sadness. We drop Something Else due to its ambigouity.
+          </p>
+          <p>We use an autoML library, <b>Autogluon</b>, to automatically select model family and hyperparameter. </p>
+        </div>
+          <h3>Feature Importance</h3>
+          <div style = "margin-left:30">
+          <p>
+
+              We compare two methods of calculating feature importance for the handcrafted features.
+
+
+          </p>
+          <p><b>1. Classification Accuracy</b></p>
+
+           Train an emotion classifier using a single feature, and approximate the feature importance
+              using the test accuracy. This method disregards feature interactions.
+
+          <p><b>2. SHAP values</b></p>
+          <p>
+            SHAP values was proposed as a unified
+            measure of feature importance for feature-based classifiers [14].In
+            simple terms, the SHAP value of a feature represents the marginal
+            contribution of that feature to the final prediction. It takes
+            exponential time to calculate the true SHAP values as it requires
+            testing all permutations of the features, and it is therefore common
+            pratice to approximate SHAP values using samplers. The authors of
+            SHAP introduced efficient approximation methods and we use their
+            <a href="https://shap.readthedocs.io/en/latest/index.html">API</a>
+            in this project.
+
+            SHAP assumes <b>feature independence</b> as correlations among
+            features might cause features which did not contribute to the
+            prediction to share the credits of those features that did
+            contribute to the prediction. However, this assumption does not hold for
+            our set of the handcrafted features, since many of them are correlated.
+            However, independence does generally hold true
+            for the 12 feature groups.
+
+            <!-- We approximate the SHAP value of each handcrafted feature in a
             linear SVM binary classifier, using 4000 background examples, 400
             explain examples, and 1000 permutations. We rank the features by
             their absolute SHAP value. SHAP values was proposed as a unified
@@ -459,9 +491,10 @@
             SHAP assumes <b>feature independence</b> as correlations among
             features might cause features which did not contribute to the
             prediction to share the credits of those features that did
-            contribute to the prediction.
+            contribute to the prediction. -->
           </p>
-          <p><b> 2. Support Vector Machines</b></p>
+        </div>
+          <!-- <p><b> 2. Support Vector Machines</b></p>
           <p>
             We use single features as input to a linear binary SVM and rank the
             features according to the prediction accuracy of the SVM. We found
@@ -484,32 +517,34 @@
             Again, we repeat this method with multi-class classication by
             training a multiclass decision tree classifier to obtain 2 separate
             rankings.
-          </p>
+          </p> -->
 
           <tr>
             <td>
               <br />
               <p>
-                <b
-                  >Finding correlation between handcrafted and learned
-                  features.</b
+                <h3
+                  >Finding correlation between handcrafted and deep-learning based features
+                  </h3
                 >
               </p>
+              <div style = "margin-left:30">
               <p>
-                We use <b>Canonical Correlation Analysis (CCA)</b> to correlate
-                handcrafted features with learned features. Given two sets of
-                random variables X and Y, CCA finds linear combinations of X and
-                Y which have <b>maximum correlation</b> with each other. Each
-                linear combination is called a canonical variable, and a pair of
-                linear combinations with maximised correlation is called
-                <b>a pair of canonical variables</b>. CCA constrains the
-                optimization such that pairs of canonical variables are
-                uncorrelated with each other. Naturally, one can find a maximum
+                We use <b>Canonical Correlation Analysis (CCA)</b> to find the amount
+                of shared information between the two feature sets. Given two sets of
+                random variables X and Y, CCA finds k pairs of canonical variables,
+                where the first canonical variable in each pair is a linear combination of X and
+                the second canonical varible is a linear combination of Y. CCA finds k pairs such
+                that the two canonical variables in each pair are maximally correlated
+                with each other, and are uncorrelated with canonical variables in the other pairs.
+                The pairs of canonical variables are constructed iteratively. I.e. The first pair of canonical variables is calculated first, and imposes
+                constaint on the second pair of canonical variables.
+                One can find a maximum
                 of min(dim(X), dim(Y)) pairs of canonical variables.
               </p>
               <p>
-                Let X be our 100D learned features, and Y be a handcrafted
-                feature group or a single handcrafted feature. For X and Y, we
+                Let X be our 100D learned features, and Y be a multi-dimensional handcrafted
+                feature group. For X and Y, we
                 find pairs of canonical variables with
                 <b>significant correlation</b>
                 coefficient (>0.45). For each pair of canonical variables, we
@@ -530,6 +565,7 @@
                 proportion of variance of the feature set with smaller variance
                 explained by the feature set with larger variance.
               </p>
+            </div>
             </td>
           </tr>
         </td>
@@ -540,24 +576,161 @@
 
     <table align="center" width="850px">
       <center>
-        <h1>Analysis results</h1>
+        <h1>Results</h1>
       </center>
       <tr>
         <td>
-          <p>
-            We carry out the procedure described in the Methods section to
-            obtain the 6 individual rankings and an overall ranking of the
-            handcrafted features. The table below lists the top 10 features from
-            each ranking. We see that the overall most important feature is GLCM
-            contrast (saturation), followed by colorfulness and black. The top
-            10 features overall are color coded for better visibility. We
-            observe consistency between individual rankings and the overall
-            ranking.
-          </p>
+          <h3>Feature performance</h3>
         </td>
       </tr>
 
       <tr align="center">
+
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/classification.png"
+          />
+        </td>
+      </tr>
+
+
+
+
+
+      <tr>
+        <td>
+          <p>
+            Handcrafted features outperform deep-learning based features
+            in both binary and multiclass classification. The ourperformance
+            margin in binary classification is 0.9% and in multiclass
+            classification is 3.3%. Furthermore, we observe combining handcrafted
+            features with deep-learning features gives an overall better performance
+            in both binary and multiclass classification.
+          </p>
+
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <h3>Feature importance</h3>
+
+        </td>
+      </tr>
+      <tr align="center">
+
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/feature_performance.png"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <p>
+            The performance of feature groups are similar in binary and multiclass
+            classification. The top 4 feature groups with highest test accuracy are hue, texture, artstyle, and genre.
+          </p>
+        </td>
+      </tr>
+      <!-- <tr align="center"> -->
+<!--
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/shapley_bi_mu.png"
+          />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <p>
+            The Shapley values of feature groups is the average
+            Shapley value of features in the feature group. We see large differences between
+            the relative ranking of Shapley value in binary
+            and multiclass classification.
+          </p>
+        </td>
+      </tr> -->
+
+      <tr align="center">
+
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/shap_compare_performance_bi.png"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <p>
+            We observe feature ranking discrepancy between the Shapley value and feature performance in the binary classification setting (and a similar
+            discrepancy in the multiclass classification setting).
+            This
+            might due to the fact that feature interactions are accounted for in the Shapley values but are not
+            in feature performance. That is, some features may have larger Shapley value because
+            they provide more information when used in conjunction with other feature groups.
+          </p>
+        </td>
+      </tr>
+
+
+      <tr align="center">
+
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/single_feature_performance.png"
+          />
+        </td>
+      </tr>
+
+      <tr align="center">
+        <td>
+          Figure 2. Top 10 feature performance in Binary Classfication, and
+           their corresponding Multiclass Classification Performance and Shapley Value.
+
+        </td>
+      </tr>
+
+      <tr>
+        <td>
+          <p>
+            The feature where the Binary Classification accuracy, Multiclass Classification accuracy, and Shapley value
+            produced the most consistent result for is "colofulness".
+          </p>
+        </td>
+      </tr>
+
+
+      <!-- <tr align="center">
+
+        <td>
+          <br />
+          <img
+            class="round"
+            style="width: 600px"
+            src="./resources/shap_compare_performance_mu.png"
+          />
+        </td>
+      </tr> -->
+
+      <!-- <tr align="center">
         <td>
           <br />
           <img
@@ -628,13 +801,14 @@
           binary Artemis dataset. We observe a positive correlation between GLCM
           contrast (saturation) value and positive emotion.
         </td>
-      </tr>
+      </tr> -->
 
       <tr>
         <td>
           <br /><br /><br />
+          <h3>What is colorfulness?</h3>
           <p>
-            The second most important feature is <b>colorfulness</b>.
+
             Colorfulness measures the Earth Mover’s Distance between the
             histogram of the painting and the histogram having a uniform color
             distribution. Images are converted into the CIE-Lab color space and
@@ -643,8 +817,8 @@
             dominanted by a <b>single color</b>, and paintings with
             <b>low</b> colorfulness values tend use <b>all colors</b> uniformly.
             Figure 5 shows some paintings with their
-            <b>normalized</b> colorfulness value. As can be seen in Figure 6,
-            colorfulness is <b>negatively correlated with positive emotion</b>.
+            normalized colorfulness value. As can be seen in Figure 6,
+            colorfulness is <b>positively correlated with negative emotion</b>.
           </p>
         </td>
       </tr>
@@ -684,7 +858,7 @@
         </td>
       </tr>
     </table>
-    <table align="center" width="850px">
+    <!-- <table align="center" width="850px">
       <tr>
         <td>
           <br />
@@ -728,8 +902,8 @@
           We observe a negative correlation between Black and positive emotion.
         </td>
       </tr>
-    </table>
-    <hr />
+    </table> -->
+    <!-- <hr />
     <table align="center" width="850px">
       <tr align="center">
         <br />
@@ -778,7 +952,7 @@
           visibility.
         </td>
       </tr>
-    </table>
+    </table>-->
     <br />
 
     <hr />
@@ -786,7 +960,7 @@
     <table align="center" width="850px">
       <tr align="center">
         <td>
-          <h5>Correlation between handcrafted features and learned features</h5>
+          <h3>Correlation between handcrafted features and learned features</h3>
         </td>
       </tr>
       <tr>
@@ -854,7 +1028,7 @@
     <hr />
     <table align="center" width="850px">
       <center>
-        <h1>Full list of handcrafted features</h1>
+        <h1><a id = "hand-features">Full list of handcrafted features</h1></a>
       </center>
     </table>
 
